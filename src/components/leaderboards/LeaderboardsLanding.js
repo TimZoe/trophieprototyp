@@ -44,7 +44,7 @@ function LeaderboardsLanding(props) {
                       </h3>
                       <img src={trophiScoreIMG} id="LeaderboardKachelIMG"/>
                       <h6 id="LeaderboardKachelh6">
-                      Dein Trophie Score hängt von der Anzhal deiner Karten ab
+                      Dein Trophie Score hängt von der Anzhal deiner Karten 
                       </h6>
                       <div id="LeaderboardKachelunten">
                         <img src={more} id="LeaderboardKacheluntenImg"/>
