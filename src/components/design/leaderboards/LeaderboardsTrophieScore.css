@@ -1,0 +1,18 @@
+#LeaderboardsTrophieScoreWrapper {
+  padding-left: 5vw;
+  display: flex;
+  flex-direction: column;
+}
+
+#TrophieScoreh3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 6vw;
+  font-weight: 700;
+}
+
+#RanglistenWrap {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4vh;
+}

@@ -1,0 +1,25 @@
+#LeaderboardWrapper {
+  display: flex;
+  flex-direction: column;
+}
+#LeaderboardWrapperH3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 6vw;
+  font-weight: 700;
+  margin-bottom: 5vh;
+}
+.LeaderMenueAuswahl {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#LeaderMenueAuswahlh3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 5vw;
+  font-weight: 700;
+}
+#LeaderMenueAuswahlImg {
+  width: 5vw;
+}

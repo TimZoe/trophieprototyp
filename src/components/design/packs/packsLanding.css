@@ -1,0 +1,31 @@
+#countdownHeader {
+  font-family: Montserrat;
+  color: black;
+  font-size: 6vw;
+  font-weight: 700;
+  margin: 0;
+}
+
+#CountdownStreifen {
+  width: 100vw;
+  margin-left: -5vw;
+  padding-left: 5vw;
+  height: 10vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  display: flex;
+  align-items: center;
+  background-color: rgb(195, 235, 239);
+}
+
+#Countdown {
+  font-family: Montserrat;
+  color: black;
+  font-size: 7vw;
+  font-weight: 800;
+  margin: 0;
+}
+
+#packsLandingWrapper {
+  padding-top: 15vh;
+}

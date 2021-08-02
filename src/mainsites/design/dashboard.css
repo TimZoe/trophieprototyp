@@ -1,0 +1,41 @@
+#dashboardWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#dashboardContent {
+  height: 64vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+#dbMenueWrapper {
+  display: flex;
+  flex-direction: row;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  height: 12vh;
+  border-radius: 3vw;
+  background-color: rgb(195, 235, 239);
+  justify-content: space-between;
+}
+
+.dbMenueEintrag {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  padding-top: 2vh;
+  align-items: center;
+  justify-content: center;
+}
+.dbMenueEintragimg {
+  width: 8vw;
+}
+.dbMenueEintragh3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 700;
+  text-align: center;
+}

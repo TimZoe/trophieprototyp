@@ -1,0 +1,9 @@
+type Karte @model {
+  id: String!
+  Bild: String!
+  Edition: String!
+  Preis: Int!
+  Anzahl: Int!
+  Owner: String!
+  SpielerLink: String!
+}

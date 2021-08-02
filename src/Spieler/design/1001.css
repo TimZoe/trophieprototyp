@@ -1,0 +1,113 @@
+#SpielerContentWrapper {
+  height: 82vh;
+  width: 90%;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+#BereichTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 28vh;
+}
+#SpielerBild {
+  display: flex;
+  justify-content: flex-start;
+}
+#SpielerBildimg {
+  width: 40vw;
+}
+#SpielerTopRechts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#SpielerNameh2 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 7vw;
+  font-weight: 700;
+  margin: 0;
+}
+#Vereinslogo {
+  width: 15vw;
+  margin-top: 2vh;
+}
+#BereichMid {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vh;
+  height: 25vh;
+}
+#SpielerHeading {
+  font-family: Montserrat;
+  color: black;
+  font-size: 5vw;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+#BereichMidEditionenWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  margin-top: 1vh;
+  margin-bottom: 5vh;
+}
+
+#Editionen {
+  display: flex;
+  flex-direction: column;
+}
+
+#BereichBottom {
+  display: flex;
+  flex-direction: column;
+}
+#SpielrInformationenWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  width: 90vw;
+  margin-top: 3vh;
+}
+#SpielerinformationenInformatioenWrapper {
+  display: flex;
+  flex-direction: column;
+}
+#Spielerinformationenh4 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 700;
+  margin: 0;
+}
+#Spielerinformationenh5 {
+  font-family: Montserrat;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 2vw;
+  font-weight: 500;
+  margin: 0;
+}
+
+#SingleEditionenWrapper {
+  width: 21vw;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2vw;
+  align-items: center;
+  padding-top: 2vh;
+  background-color: rgb(128, 243, 255, 0.4);
+  padding-left: 3vw;
+  padding-right: 3vw;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  margin-left: 3vw;
+}
+#SingleEditionenWrapperimg {
+  height: 15vh;
+}

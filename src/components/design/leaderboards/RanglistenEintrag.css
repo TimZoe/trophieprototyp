@@ -1,0 +1,28 @@
+#RanglistenEintragh3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 700;
+}
+
+#RanglistenEintragPLatzh3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 700;
+  margin-right: 10vw;
+}
+#RanglistenEintrag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 5vw;
+  padding-left: 5vw;
+  width: 80vw;
+}
+#Ranglisteneintragleft {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+}

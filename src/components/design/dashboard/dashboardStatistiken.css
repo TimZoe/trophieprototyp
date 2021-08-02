@@ -1,0 +1,101 @@
+#StatistikenWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  padding-left: 0;
+  width: 90vw;
+}
+#StatsContentWrap {
+  width: 46%;
+  background-color: rgba(195, 235, 239, 0.7);
+  border-radius: 2vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 2vw;
+  padding-top: 1vw;
+  filter: drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.25));
+}
+#contentstatsWrapunten {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-right: 2vw;
+}
+#vontentWrapRechts {
+  display: flex;
+  flex-direction: column;
+}
+#contentSTatsrechtswrap {
+  display: flex;
+  flex-direction: column;
+}
+#contentStatsrehtsh4 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 700;
+  margin: 0;
+}
+#contentStatsrehtsh5 {
+  font-family: Montserrat;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 2.5vw;
+  font-weight: 500;
+  margin: 0;
+}
+
+#statsCharth4 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 700;
+  margin: 0;
+}
+
+#StatsContentWrap100 {
+  width: 100%;
+  background-color: rgba(195, 235, 239, 0.7);
+  filter: drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.25));
+  display: flex;
+  flex-direction: row;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-radius: 2vw;
+  height: 15vh;
+  margin-top: 2vh;
+}
+
+#StatsRowWrap {
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 17vh;
+  position: relative;
+}
+#chartWrapper {
+  display: flex;
+  width: 100%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#statsbigh3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 5vw;
+  font-weight: 700;
+  margin: 0;
+}
+
+#WertStatsChartWrapper {
+  width: 75%;
+}
+#StatsWertRechtsWrapper {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,123 @@
+.welcomeScreenButtonWhite {
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  height: 4vh;
+  margin-bottom: 3vh;
+  background-color: white;
+  border-radius: 3vw;
+  height: 7vh;
+}
+
+#welchomeBG {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/Images/bgBild.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: none;
+}
+
+#welcomeContent {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#welcomeScreenTopWrapper {
+  display: flex;
+  flex-direction: column;
+}
+#welcomeScreenh2 {
+}
+#welcomeScreenTopLogo {
+  margin-top: -3vh;
+  margin-bottom: -3vh;
+}
+#welcomeScreenToph3 {
+  font-family: Montserrat;
+  color: white;
+  font-size: 8vw;
+  font-weight: 700;
+  text-align: center;
+}
+#welcomeScreenbuttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4vh;
+}
+#welcomeScreenButtonh3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 4vw;
+  font-weight: 700;
+  text-align: center;
+}
+#welcomeScreenButtonImg {
+}
+
+#welcomettrophieWrap {
+  background-image: url("../../assets/Images/Welcometi2.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+#welcomettrophieWrap {
+}
+#wttrophietop {
+  display: flex;
+  justify-content: center;
+  padding-top: 0vh;
+}
+#wttrophieh2 {
+  font-family: Montserrat;
+  color: white;
+  font-size: 12vw;
+  font-weight: 700;
+  text-align: center;
+}
+
+#wttrophiebuttonsec {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#wttrophiebutton {
+  padding: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3vw;
+  background-color: rgb(195, 235, 239);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+#wttrophiebuttonh4 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 4vw;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+#wttrophieLogo {
+  width: 80vw;
+  margin-left: 10vw;
+}
+
+#wttrophiemid {
+  margin-top: 20vh;
+}

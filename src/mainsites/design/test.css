@@ -1,0 +1,10 @@
+#kartimf {
+  border-width: 2px;
+  border-style: solid;
+  border-color: turquoise;
+  width: 50vw;
+}
+
+#KartenBild {
+  width: 20vw;
+}
