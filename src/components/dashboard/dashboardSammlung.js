@@ -171,7 +171,7 @@ function DashboardSammlung(props) {
             userKarten.map(ArrayCKC => {
                 if(ArrayCKC.Edition.includes("Rare") == true) {
                     count3 ++;                  
-                    setClassicKartenUser(count2)
+                    setClassicKartenUser(count3)
               }
               else {
                 console.log('Keine Rare Karte')

@@ -59,6 +59,7 @@ function SideMenue(props) {
 
 
             </div>
+            <amplify-sign-out button-text="Signout"></amplify-sign-out>
 
             <div id="SideMenueSearch">
                 <h3 id="suchenh3">

@@ -90,10 +90,11 @@ function home() {
                   </div>
                 </Link>
               </div>
-                
+              
 
 
             </div>
+            <amplify-sign-out button-text="Signout"></amplify-sign-out>
 
          
          
