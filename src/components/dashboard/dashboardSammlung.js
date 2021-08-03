@@ -67,7 +67,7 @@ function DashboardSammlung(props) {
      
        Kartes.map(Karte => {  
   
-         if(Karte.Owner.includes("TimZöl") == true) {                                     
+         if(Karte.Owner.includes(UserName) == true) {                                     
            newuserArray.push(Karte)        
            setuserKarten(newuserArray)              
          }

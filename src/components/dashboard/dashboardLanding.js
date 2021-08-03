@@ -64,7 +64,7 @@ function DashboardLanding(props) {
    
      Kartes.map(Karte => {  
 
-       if(Karte.Owner.includes("TimZöl") == true) {                                     
+       if(Karte.Owner.includes(UserName) == true) {                                     
          newuserArray.push(Karte)        
          setuserKarten(newuserArray)              
        }
@@ -143,7 +143,7 @@ function DashboardLanding(props) {
       }
 
 
-      function Wrap () {
+      function WrapLanding () {
         getUserKarten();
         UserWert();
         AlleUserTrophieKartenCounter();
@@ -163,7 +163,7 @@ function DashboardLanding(props) {
                 <h3 class="dbh3">Willkommen</h3> &nbsp; &nbsp;<h3 class="dbh3">{UserName}</h3>
               </div>
 
-                <button onClick={Wrap}>
+                <button onClick={WrapLanding}>
                  DataTrigger
                 </button>
 

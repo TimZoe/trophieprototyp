@@ -62,7 +62,7 @@ function öffentlichenProfil() {
        
          Kartes.map(Karte => {  
     
-           if(Karte.Owner.includes("TimZöl") == true) {                                     
+           if(Karte.Owner.includes(UserName) == true) {                                     
              newuserArray.push(Karte)        
              setuserKarten(newuserArray)              
            }
@@ -158,15 +158,40 @@ function öffentlichenProfil() {
 
       <TopMenue title="Profil"/>
       <div id="profilContent">
+        <button onClick={Wrap}>
+
+                 DataTrigger
+         </button>
+
+
 
          <div id="profilTopWrapper">
 
             <img src={userBild} id="UserBild"/>
-            <h3 id="userName">{UserName}</h3>
+            <div id="profilTopWrapperrechts">
+              <h3 id="userName">{UserName}</h3>
+              <div id="profilTopTopInfoEintrag">
+                <h3 id="profilTopTopInfoEintragh3">
+                  19.07.2021
+                </h3>
+                <h4 id="profilTopTopInfoEintragh4">
+                  Mitglied seit
+                </h4>
+              </div>
+              <div id="profilTopTopInfoEintrag">
+                <h3 id="profilTopTopInfoEintragh3">
+                  19.07.2021
+                </h3>
+                <h4 id="profilTopTopInfoEintragh4">
+                  Mitglied seit
+                </h4>
+              </div>
+            </div>
+            
          </div>
-         <button onClick={Wrap}>
-                 DataTrigger
-                </button>
+        
+
+
          <div id="ProfilKartenÜbersicht">
 
             <h3 id="profilh3">
@@ -186,39 +211,7 @@ function öffentlichenProfil() {
 
          </div>
 
-         <div id="profilblueÜbersicht">
-                <div class="dbSammlungMidEintrag">
-                            <h3 class="dbSammlungMidh2">
-                                {ClassicKartenUser}
-                            </h3>
-                            <h4 class="dbSammlungMidh4">
-                                Classic
-                            </h4>
-                        </div>
-                        <div class="dbSammlungMidEintrag">
-                            <h3 class="dbSammlungMidh2">
-                                {RareKartenUser}
-                            </h3>
-                            <h4 class="dbSammlungMidh4">
-                                Rare
-                            </h4>
-                        </div>
-                        <div class="dbSammlungMidEintrag">
-                            <h3 class="dbSammlungMidh2">
-                            {TrophieKartenUser}
-
-                            </h3>
-                            <h4 class="dbSammlungMidh4">
-                                Trophie
-                            </h4>
-                        </div>
-         </div>
-
-         <div id="profilScoreÜbersicht">
-         <ScoreDisplay value={TrophieScore} title="Trophie Score"/>
-           
-         </div>
-
+         
 
       </div>
     

@@ -68,7 +68,7 @@ function Test() {
        
          Kartes.map(Karte => {  
     
-           if(Karte.Owner.includes("timzöl") == true) {                                     
+           if(Karte.Owner.includes(UserName) == true) {                                     
              newuserArray.push(Karte)        
              setuserKarten(newuserArray)              
            }
