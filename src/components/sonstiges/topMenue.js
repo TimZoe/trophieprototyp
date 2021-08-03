@@ -1,6 +1,6 @@
 import '../design/sonstiges/topMenue.css';
 import {Route, Link} from "react-router-dom";
-import topMenueLogo from '../../assets/Images/TrophieLogoQu.png';
+import topMenueLogo from '../../assets/Images/trophieLogoclean.png';
 import menueButton from '../../assets/Images/hamburgermenue.png';
 import { useState, useEffect } from 'react';
 import SideMenue from './SideMenue';

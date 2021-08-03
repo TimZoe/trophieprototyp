@@ -300,19 +300,19 @@ function S1001(props) {
               </h2>
                 <div id="BereichMidEditionenWrapper">
                   <div id="Editionen">
-                   <div id="SingleEditionenWrapper">
+                   <div class="SingleEditionenWrapper Trophie">
                         <img src={KarteS1001} id="SingleEditionenWrapperimg"/>
                         <h5 id="dashboardSammlungKartenEintragH5">Trophie</h5> 
                    </div>
                   </div>
                   <div id="Editionen">
-                  <div id="SingleEditionenWrapper">
+                  <div class="SingleEditionenWrapper Rare">
                         <img src={KarteS1001} id="SingleEditionenWrapperimg"/>
                         <h5 id="dashboardSammlungKartenEintragH5">Rare</h5> 
                    </div>
                   </div>
                   <div id="Editionen">
-                  <div id="SingleEditionenWrapper">
+                  <div class="SingleEditionenWrapper">
                         <img src={KarteS1001} id="SingleEditionenWrapperimg"/>
                         <h5 id="dashboardSammlungKartenEintragH5">Classic</h5> 
                    </div>

@@ -4,58 +4,174 @@
   padding-right: 10vw;
   padding-top: 2vh;
 }
-
+#zind {
+  position: relative;
+  z-index: 10;
+}
 #profilTopWrapper {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  height: 20vh;
+  height: 18vh;
+  margin-top: 1vh;
 }
 #UserBild {
   border-radius: 100%;
-  width: 35vw;
+  width: 40vw;
+  margin-left: -5vw;
+  position: relative;
+  z-index: 5;
 }
 #userName {
   font-family: Montserrat;
   color: black;
-  font-size: 5vw;
+  font-size: 7vw;
   font-weight: 700;
+  margin: 0;
+  margin-bottom: 3vh;
 }
+
 #profilTopWrapperrechts {
   display: flex;
   flex-direction: column;
+  margin-left: 8vw;
 }
 #profilTopTopInfoEintrag {
   display: flex;
   flex-direction: column;
-  height: 4vh;
+  height: 7vh;
 }
 #profilTopTopInfoEintragh3 {
   font-family: Montserrat;
   color: black;
-  font-size: 5vw;
+  font-size: 4.3vw;
   font-weight: 700;
+  margin: 0;
 }
 #profilTopTopInfoEintragh4 {
   font-family: Montserrat;
   color: rgba(0, 0, 0, 0.7);
   font-size: 3vw;
   font-weight: 400;
+  margin: 0;
+  margin-top: 0.3vh;
 }
 
 #ProfilKartenÜbersicht {
   display: flex;
   flex-direction: column;
+  margin-top: -2vh;
 }
 #profilh3 {
   font-family: Montserrat;
   color: black;
   font-size: 5vw;
   font-weight: 700;
+  margin-bottom: -1vh;
 }
 #profilCardWrapper {
   display: flex;
   flex-direction: row;
+  height: 23vh;
+  overflow: hidden;
+}
+.ProfilKartenEintrag {
+  width: 21vw;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2vw;
+  align-items: center;
+  padding-top: 2vh;
+  background-color: rgb(128, 243, 255, 0.1);
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+.ProfilKartenEintrag.Rare {
+  background-color: rgba(195, 235, 239, 0.5);
+}
+.ProfilKartenEintrag.Trophie {
+  background-color: rgba(112, 107, 191, 0.3);
+}
+#UserProfilGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1vw;
+  width: 90vw;
+  grid-auto-rows: 20vh;
+  grid-auto-columns: 25vw;
+  padding-left: 0;
+}
+
+#ProfilCardWrapperImg {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  width: 85%;
+  height: 75%;
+  margin-bottom: 1vh;
+  margin-top: 0vh;
+  border-radius: 2vw;
+}
+
+#Profilunten {
+  display: flex;
+  flex-direction: row;
+  padding-top: 1vh;
+  height: 24vh;
+}
+#ProfiluntenScoreSpalte {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+}
+#ProfiluntenScoreSpalteItem {
+  height: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ProfilUntenmidSec {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+}
+#ProfilunenmidBlueWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 20vw;
+  border-radius: 4vw;
+  align-items: center;
+  height: 95%;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+
+  background-color: rgb(195, 235, 239);
+}
+#ProfilBlueItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#ProfilBlueItemH3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 4vw;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-top: 0vh;
+  text-align: center;
+}
+#ProfilBlueItemH4 {
+  font-family: Montserrat;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 3vw;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 1vh;
+  text-align: center;
 }

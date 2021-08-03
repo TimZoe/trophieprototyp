@@ -10,14 +10,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 28vh;
+  height: 25vh;
 }
 #SpielerBild {
   display: flex;
   justify-content: flex-start;
 }
 #SpielerBildimg {
-  width: 40vw;
+  width: 35vw;
 }
 #SpielerTopRechts {
   display: flex;
@@ -38,7 +38,7 @@
 #BereichMid {
   display: flex;
   flex-direction: column;
-  margin-top: 3vh;
+  margin-top: 1vh;
   height: 25vh;
 }
 #SpielerHeading {
@@ -68,6 +68,7 @@
 #BereichBottom {
   display: flex;
   flex-direction: column;
+  padding-top: 2vh;
 }
 #SpielrInformationenWrapper {
   display: grid;
@@ -79,35 +80,46 @@
 #SpielerinformationenInformatioenWrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 1vh;
 }
 #Spielerinformationenh4 {
   font-family: Montserrat;
   color: black;
-  font-size: 3vw;
+  font-size: 4vw;
   font-weight: 700;
   margin: 0;
 }
 #Spielerinformationenh5 {
   font-family: Montserrat;
   color: rgba(0, 0, 0, 0.7);
-  font-size: 2vw;
+  font-size: 3vw;
   font-weight: 500;
   margin: 0;
 }
 
-#SingleEditionenWrapper {
-  width: 21vw;
+.SingleEditionenWrapper {
+  width: 18vw;
   display: flex;
   flex-direction: column;
   border-radius: 2vw;
   align-items: center;
   padding-top: 2vh;
-  background-color: rgb(128, 243, 255, 0.4);
+  background-color: rgb(128, 243, 255, 0.1);
   padding-left: 3vw;
   padding-right: 3vw;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
   margin-left: 3vw;
+  padding-bottom: 1vh;
 }
+.SingleEditionenWrapper.Trophie {
+  background-color: rgba(112, 107, 191, 0.3);
+}
+.SingleEditionenWrapper.Rare {
+  background-color: rgba(195, 235, 239, 0.5);
+}
+
 #SingleEditionenWrapperimg {
-  height: 15vh;
+  height: 14vh;
+  margin-bottom: 1vh;
 }
