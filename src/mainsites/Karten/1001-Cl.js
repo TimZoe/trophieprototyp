@@ -1,15 +1,22 @@
-
-import '../design/dashboard/dashboardSammlung.css';
-import moreImg from '../../assets/Images/buttonImg.png'
-import lilaCard from '../../assets/Images/CardLila.png'
+import './design/1001-Cl.css';
 import { useState, useEffect } from 'react';
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import {listKartes} from '../../graphql/queries';
 import { Auth } from 'aws-amplify';
-import { Link } from 'react-router-dom';
+import TopMenue from '../../components/sonstiges/topMenue';
+import CardImg from '../../assets/Images/BetaKarten/Cl-01-1002.png'
+import img1 from '../../assets/Images/BetaKarten/Cl-01-1001.png'
+import img2 from '../../assets/Images/BetaKarten/Cl-01-1001.png'
+import SideMenue from '../../components/sonstiges/SideMenue';
+import topMenueLogo from '../../assets/Images/trophieLogoclean.png';
+import {Route, Link} from "react-router-dom";
+import menueButton from '../../assets/Images/menuebottomwhite.png';
+import Playerimg from '../../assets/Images/Players/S1001.png'
+
+function Cl1001(props) {
 
 
-function DashboardSammlung(props) {
+  const [ButtonPopUp, setButtonPopUp] = useState(false);
 
     const [UserName, setUserName] = useState(0);
     const [Kartes, setKartes] = useState ([]);
@@ -23,7 +30,9 @@ function DashboardSammlung(props) {
     const [userTrophieKarten, setuserTrophieKarten] = useState([]);
     const [userRareKarten, setuserRareKarten] = useState([]);
     const [userClassicKarten, setuserClassicKarten] = useState([]);
-
+    const [AlleTrophieKarten, setAlleTrophieKarten] = useState([]);
+    const [AlleRareKarten, setAlleRareKarten] = useState([]);
+    const [AlleClassicKarten, setAlleClassicKarten] = useState([]);
 
 
 
@@ -68,7 +77,7 @@ function DashboardSammlung(props) {
      
        Kartes.map(Karte => {  
   
-         if(Karte.Owner.includes(UserName) == true) {                                     
+         if(Karte.Owner.includes("TimZöl") == true) {                                     
            newuserArray.push(Karte)        
            setuserKarten(newuserArray)              
          }
@@ -76,10 +85,60 @@ function DashboardSammlung(props) {
         
          }               
         })}
+ 
+
+
+    //Diese Funktion bildet ein Array mit Allen Trophie Karten
+    var newTrophieArray= []
+  
+     function getAlleTrophieKarten()  {
+     
+       Kartes.map(Karte => {  
+  
+         if(Karte.Edition.includes("Trophie") == true) {                                     
+            newTrophieArray.push(Karte)        
+           setAlleTrophieKarten(newTrophieArray)              
+         }
+         else {
+        
+         }               
+        })}
+
+        //Diese Funktion bildet ein Array mit Allen Trophie Karten
+    var newRareArray= []
+  
+    function getAlleRareKarten()  {
+    
+      Kartes.map(Karte => {  
+ 
+        if(Karte.Edition.includes("Rare") == true) {                                     
+            newRareArray.push(Karte)        
+          setAlleRareKarten(newRareArray)              
+        }
+        else {
+       
+        }               
+       })}
+
+       //Diese Funktion bildet ein Array mit Allen Classic Karten
+    var newClassicArray= []
+  
+    function getAlleClassicKarten()  {
+    
+      Kartes.map(Karte => {  
+ 
+        if(Karte.Edition.includes("Classic") == true) {                                     
+            newClassicArray.push(Karte)        
+          setAlleClassicKarten(newClassicArray)              
+        }
+        else {
+       
+        }               
+       })}
 
       //Diese Funktion bildet ein Array für Trophie Karten des Users
 
-      var newuserTrophieArray= []
+    var newuserTrophieArray= []
   
      function getTrophieUserKarten()  {
      
@@ -170,9 +229,9 @@ function DashboardSammlung(props) {
           function AlleUserClassicKartenCounter () {  
     
             userKarten.map(ArrayCKC => {
-                if(ArrayCKC.Edition.includes("Classic") == true) {
+                if(ArrayCKC.Edition.includes("Rare") == true) {
                     count3 ++;                  
-                    setClassicKartenUser(count3)
+                    setClassicKartenUser(count2)
               }
               else {
                 console.log('Keine Rare Karte')
@@ -217,89 +276,129 @@ function DashboardSammlung(props) {
           getTrophieUserKarten();
           getRareUserKarten();
           getClassicUserKarten();
+          getAlleTrophieKarten();
+          getAlleRareKarten();
+          getAlleClassicKarten();
+
 
         }
   
       
-  return (props.trigger) ?(
+  return (
     <div>
-        <div id="dbSammlungWrapper">
-            <div id="dbOben">
-            </div>
-
-            <div id="dbSammlungCards">
-            {props.children}
-                <h2 class="dbSammlungMidh2">Deine Karten Sammlung</h2>
-                <button onClick={Wrap}>
-                 DataTrigger
-                </button>
-
-
-
-                <div id="dbSammlungMid">
-                <div class="dbSammlungMidEintrag">
-                    <h3 class="dbSammlungMidh2">
-                        {ClassicKartenUser}
-                    </h3>
-                    <h4 class="dbSammlungMidh4">
-                        Classic
-                    </h4>
-                </div>
-                <div class="dbSammlungMidEintrag">
-                    <h3 class="dbSammlungMidh2">
-                        {RareKartenUser}
-                    </h3>
-                    <h4 class="dbSammlungMidh4">
-                        Rare
-                    </h4>
-                </div>
-                <div class="dbSammlungMidEintrag">
-                    <h3 class="dbSammlungMidh2">
-                    {TrophieKartenUser}
-
-                    </h3>
-                    <h4 class="dbSammlungMidh4">
-                        Trophie
-                    </h4>
-                </div>
-            </div>
-
-             <ul id="dashboardSammlungKartenWrapperGrid">
-                                {userTrophieKarten.map(Karte => (
-                                <li class="dashboardSammlungKartenWrapperGridEintrag Trophie">
-                                   <Link to={Karte.SpielerLink} id="dd">
-                                   <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                   <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5>                                     
-                                    </Link>
-                                </li> ))}
-                                {userRareKarten.map(Karte => (
-                                <li class="dashboardSammlungKartenWrapperGridEintrag Rare">
-                                   <Link to={Karte.SpielerLink} id="dd">
-                                   <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                    <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5>                                     
-                                    </Link>
-                                </li> ))}
-                                {userClassicKarten.map(Karte => (
-                                <li class="dashboardSammlungKartenWrapperGridEintrag">
-                                   <Link to={Karte.SpielerLink} id="dd">
-                                   <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                    <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5>                                     
-                                    </Link>
-                                </li> ))}
-               </ul>
-                        
+        <div id="topMenueblack"> 
            
-                   
+                <Link to="/dashboard">
+                     <img src={topMenueLogo} id="topMenueImg"/>
+                </Link>
+                <div id="topMenueWrapperblack">
+                    <h3 id="titlewhite">Cl-01-1001</h3>
+                    <button onClick={() => setButtonPopUp(true)}>
+                        <div id="menueButtomwhite">
+                            <img src={menueButton} id="menueButtonImg"/>
+                        </div>
+                    </button>
 
-            </div>
+        </div>                </div>
+            <SideMenue trigger={ButtonPopUp} setTrigger={setButtonPopUp}>   
+            </SideMenue>
+          <div id="singleCarContentWrapper">
 
-           
-
+            <div id="singleCardWrapper">
             
+              <div className="card">
+                 
+                  <div class="radialgradient">
+                    
+                  </div>
+                  <div class="card-back card-face">
+                    <img src={img1} id="cardFrontimg"/>
+                  </div>
+
+                  <div class="card-front card-face w">
+                    <h3 id="backCradtitle">
+                      Cl-01-1001
+                    </h3>
+                    <div id="backCardWrapperInfo">
+                      
+                      <div id="backCardInfoWrapper">
+                        <h3 id="backCardInfoh3">
+                          2
+                        </h3>
+                        <h4 id="backCardInfoh4">
+                          Anzahl
+                        </h4>
+                      </div>
+
+                      <div id="backCardInfoWrapper">
+                        <h3 id="backCardInfoh3">
+                          20/21
+                        </h3>
+                        <h4 id="backCardInfoh4">
+                          Saison
+                        </h4>
+                      </div>
+
+                      <div id="backCardInfoWrapper">
+                        <h3 id="backCardInfoh3">
+                          25
+                        </h3>
+                        <h4 id="backCardInfoh4">
+                          Preis
+                        </h4>
+                      </div>
+
+                      <div id="backCardInfoWrapper">
+                        <h3 id="backCardInfoh3">
+                          Classic
+                        </h3>
+                        <h4 id="backCardInfoh4">
+                          Edition
+                        </h4>
+                      </div>
+
+                    </div>
+
+
+                    <div id="backCardbottom">
+
+                      <div id="playerImgWrap">
+                        <img src={Playerimg} id="Playerimg"/>
+                      </div>
+                      <div id="backCardPlayerrechts">
+                        <h3 id="backCardSpielerh3">
+                          Spieler 1001
+                        </h3> 
+                        
+                        <Link to="/Spieler/1001">
+                          <div id="mehrbuttonBackCard">
+                         
+
+                      
+                            <h3 id="mehrbuttonBackCardH3">
+                              Mehr
+
+                            </h3>
+                          </div> 
+                        </Link>
+                      </div>
+
+                    </div>
+
+
+
+                  </div>
+                  
+
+              </div>
+                
+        
+            </div>
+        
         </div>
-    
+        
      </div>
-  ):""; 
+  )
   }
  
-export default DashboardSammlung;
+export default Cl1001;

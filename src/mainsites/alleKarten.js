@@ -280,11 +280,10 @@ function AlleKarten(props) {
       
   return (
     <div>
-                        <TopMenue title="Alle Karten"/>
+        <TopMenue title="Alle Karten"/>
 
-        <div id="dbSammlungWrapper">
-            
-            <div id="dbSammlungCards">
+            <div id="alleKartenWrapper">
+
             {props.children}
                 <h2 class="dbSammlungMidh2">Alle Karten auf Trophie</h2>
                 <button onClick={Wrap}>
@@ -318,24 +317,15 @@ function AlleKarten(props) {
                                 </li> ))}
                                 {AlleClassicKarten.map(Karte => (
                                 <li class="AlleKartenGridEintrag">
-                                   <Link to={Karte.SpielerLink} id="dd">
+                                   <Link to="Karten/Cl1001" id="dd">
                                    <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
                                     <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5>  
                                     </Link>
                                  
                                 </li> ))}
                </ul>
-                        
-           
-                   
+               </div>
 
-            </div>
-
-           
-
-            
-        </div>
-    
      </div>
   )
   }

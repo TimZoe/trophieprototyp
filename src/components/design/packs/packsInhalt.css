@@ -1,7 +1,7 @@
 #packsInhaltWrapper {
 }
 #zuMeinemDbButtom {
-  width: 50vw;
+  width: 35vw;
   padding: 2vh;
   display: flex;
   justify-content: center;
@@ -13,6 +13,7 @@
   text-align: center;
   border-radius: 3vw;
   background-color: rgb(195, 235, 239);
+  margin-top: 5vh;
 }
 
 #packInhaltWrapper {
@@ -21,11 +22,46 @@
 #karten {
   display: flex;
   flex-direction: row;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
 }
 
 #inhaltcard {
-  width: 25vw;
+  width: 46vw;
   margin-right: 2vw;
+  border-radius: 2vw;
+}
+
+#packInhaltinhaltWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 5vh;
+}
+#PackInhaltTextInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4vw;
+}
+#PackInahltCardh2 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 5vw;
+  font-weight: 700;
+  margin-bottom: 1vh;
+  margin-top: 0;
+}
+#PackInahltCardh3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 4vw;
+  font-weight: 700;
+  margin: 0;
+  margin-top: 2vh;
+}
+#PackInahltCardh4 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 500;
+  margin: 0;
+  margin-top: 1vh;
 }

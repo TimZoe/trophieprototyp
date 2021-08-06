@@ -11,6 +11,7 @@ export const getKarte = /* GraphQL */ `
       Anzahl
       Owner
       SpielerLink
+      SpielerName
       createdAt
       updatedAt
     }
@@ -31,6 +32,7 @@ export const listKartes = /* GraphQL */ `
         Anzahl
         Owner
         SpielerLink
+        SpielerName
         createdAt
         updatedAt
       }

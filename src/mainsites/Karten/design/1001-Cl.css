@@ -1,0 +1,194 @@
+#topMenueblack {
+  width: 90vw;
+  height: 12vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+}
+#topMenueImg {
+  width: 18vw;
+}
+#topMenueWrapperblack {
+  display: flex;
+  flex-direction: row;
+}
+#titlewhite {
+  margin-right: 2vw;
+  font-family: Montserrat;
+  color: white;
+  font-size: 5vw;
+  font-weight: 700;
+  text-align: center;
+}
+#menueButtomwhite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#singleCarContentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  background-color: black;
+  height: 86vh;
+}
+
+#singleCardWrapper {
+  height: 82vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: black;
+  width: 100vw;
+  padding-top: 4vh;
+}
+
+.card {
+  position: relative;
+  height: 75%;
+  width: 75%;
+  z-index: 5;
+}
+.card-face {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+  transition: transform 500ms ease-in-out;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(0);
+}
+.card-front {
+  transform: rotateY(180deg);
+  background-color: black;
+  border-color: white;
+  padding-left: 8vw;
+  padding-right: 8vw;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.card-face.card-front.w {
+  width: 84%;
+}
+.card:hover .card-back {
+  transform: rotateY(-180deg);
+}
+.card:hover .card-front {
+  transform: rotateY(0deg);
+}
+
+.card-front .card-face {
+}
+
+#cardFrontimg {
+  width: 100%;
+  height: 100%;
+}
+.radialgradient {
+  position: absolute;
+  width: 399px;
+  height: 399px;
+  left: -62px;
+  top: 10px;
+
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+#backCradtitle {
+  font-family: Montserrat;
+  color: white;
+  font-size: 7vw;
+  font-weight: 700;
+}
+#backCardWrapperInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  width: 100%;
+  column-gap: 5vw;
+  row-gap: 4vh;
+}
+#backCardInfoWrapper {
+}
+#backCardInfoh3 {
+  font-family: Montserrat;
+  color: white;
+  font-size: 4vw;
+  font-weight: 700;
+  margin: 0;
+}
+#backCardInfoh4 {
+  font-family: Montserrat;
+  color: white;
+  font-size: 3vw;
+  font-weight: 500;
+  margin: 0;
+  margin-top: 10px;
+}
+
+#backCardbottom {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 8vh;
+}
+#playerImgWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+#Playerimg {
+  width: 20vw;
+}
+#backCardPlayerrechts {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 10%;
+}
+#backCardSpielerh3 {
+  font-family: Montserrat;
+  color: white;
+  font-size: 5vw;
+  font-weight: 700;
+}
+#mehrbuttonBackCard {
+  border-radius: 2vw;
+  padding: 1vw;
+  background-color: rgb(195, 235, 239);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#mehrbuttonBackCardH3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 700;
+}

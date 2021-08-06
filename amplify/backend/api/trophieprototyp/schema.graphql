@@ -6,4 +6,5 @@ type Karte @model {
   Anzahl: Int!
   Owner: String!
   SpielerLink: String!
+  SpielerName: String!
 }
