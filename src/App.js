@@ -20,7 +20,35 @@ import S1001 from './Spieler/1001';
 import S1002 from './Spieler/1002';
 import S1003 from './Spieler/1003';
 import S1004 from './Spieler/1004';
+
+
 import Cl1001 from './mainsites/Karten/1001-Cl';
+import Ra1001 from './mainsites/Karten/1001-Ra';
+import Tr1001 from './mainsites/Karten/1001-Tr';
+
+import Cl1002 from './mainsites/Karten/1002-Cl';
+import Ra1002 from './mainsites/Karten/1002-Ra';
+
+import Cl1003 from './mainsites/Karten/1003-Cl';
+import Ra1003 from './mainsites/Karten/1003-Ra';
+import Tr1003 from './mainsites/Karten/1003-Tr';
+
+import Cl1004 from './mainsites/Karten/1004-Cl';
+import Ra1004 from './mainsites/Karten/1004-Ra';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Amplify.configure(awsconfig);
 
@@ -45,8 +73,21 @@ function App() {
        <Route exact path="/Spieler/1002" component={S1002} />
        <Route exact path="/Spieler/1003" component={S1003} />
        <Route exact path="/Spieler/1004" component={S1004} />
-       <Route exact path="/Karten/Cl1001" component={Cl1001} />
 
+       <Route exact path="/Karten/1001-Cl" component={Cl1001} />
+       <Route exact path="/Karten/1001-Ra" component={Ra1001} />
+       <Route exact path="/Karten/1001-Tr" component={Tr1001} />
+
+       <Route exact path="/Karten/1002-Cl" component={Cl1002} />
+       <Route exact path="/Karten/1002-Ra" component={Ra1002} />
+
+       <Route exact path="/Karten/1003-Cl" component={Cl1003} />
+       <Route exact path="/Karten/1003-Ra" component={Ra1003} />
+       <Route exact path="/Karten/1003-Tr" component={Tr1003} />
+
+       <Route exact path="/Karten/1004-Cl" component={Cl1004} />
+       <Route exact path="/Karten/1004-Ra" component={Ra1004} />
+    
 
       </header>
     </div>

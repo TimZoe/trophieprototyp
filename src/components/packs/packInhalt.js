@@ -62,6 +62,7 @@ const fetchKarten = async () => {
 
 
         function DataTrigger () {
+          
                 fetchKarten();
                 getUserName();
                 getUserKarten();

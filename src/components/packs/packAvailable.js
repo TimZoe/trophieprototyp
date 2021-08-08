@@ -1,5 +1,5 @@
 import '../design/packs/packAvailable.css';
-import cardPack from '../../assets/Images/Pack.png'
+import PackVorschau from '../../assets/Images/PackVorschau.png'
 
 function packsAvailable(props) {
     return (props.trigger) ?(
@@ -10,7 +10,7 @@ function packsAvailable(props) {
 
                 <h2 id="countdownHeaders">
                 Dein nächstes Pack wartet auf dich:                </h2>  
-                <img src={cardPack} id="cardPackImg"/>
+                <img src={PackVorschau} id="cardPackImg"/>
               
 
             </div>

@@ -15,6 +15,7 @@ export const createKarte = /* GraphQL */ `
       Owner
       SpielerLink
       SpielerName
+      KartenLink
       createdAt
       updatedAt
     }
@@ -34,6 +35,7 @@ export const updateKarte = /* GraphQL */ `
       Owner
       SpielerLink
       SpielerName
+      KartenLink
       createdAt
       updatedAt
     }
@@ -53,6 +55,7 @@ export const deleteKarte = /* GraphQL */ `
       Owner
       SpielerLink
       SpielerName
+      KartenLink
       createdAt
       updatedAt
     }

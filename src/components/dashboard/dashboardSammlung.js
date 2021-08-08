@@ -267,21 +267,21 @@ function DashboardSammlung(props) {
              <ul id="dashboardSammlungKartenWrapperGrid">
                                 {userTrophieKarten.map(Karte => (
                                 <li class="dashboardSammlungKartenWrapperGridEintrag Trophie">
-                                   <Link to={Karte.SpielerLink} id="dd">
+                                   <Link to={Karte.KartenLink} id="dd">
                                    <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
                                    <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5>                                     
                                     </Link>
                                 </li> ))}
                                 {userRareKarten.map(Karte => (
                                 <li class="dashboardSammlungKartenWrapperGridEintrag Rare">
-                                   <Link to={Karte.SpielerLink} id="dd">
+                                   <Link to={Karte.KartenLink} id="dd">
                                    <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
                                     <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5>                                     
                                     </Link>
                                 </li> ))}
                                 {userClassicKarten.map(Karte => (
                                 <li class="dashboardSammlungKartenWrapperGridEintrag">
-                                   <Link to={Karte.SpielerLink} id="dd">
+                                   <Link to={Karte.KartenLink} id="dd">
                                    <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
                                     <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5>                                     
                                     </Link>

@@ -70,8 +70,10 @@ function DashboardLanding(props) {
        }
        else {
       
-       }               
-      })}
+       }    
+
+      })
+    console.log(Kartes)}
      
     //Diese Funktion berechnet den Wert der User Karten
     var HWertUserKarten=0

@@ -55,19 +55,22 @@
 
 #dashboardSammlungKartenWrapperGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1000, 1fr);
   gap: 1vw;
   width: 90vw;
-  grid-auto-rows: 20vh;
+  grid-auto-rows: 24vh;
   grid-auto-columns: 25vw;
   padding-left: 0;
+  overflow-x: scroll;
+  overflow-y: none;
+  margin-top: 5vh;
 }
 .dashboardSammlungKartenWrapperGridEintrag {
   width: 21vw;
   display: flex;
   flex-direction: column;
   border-radius: 2vw;
-
+  height: 85%;
   align-items: center;
   padding-top: 2vh;
   background-color: rgb(128, 243, 255, 0.1);

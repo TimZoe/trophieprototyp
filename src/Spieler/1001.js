@@ -9,6 +9,12 @@ import TopMenue from '../components/sonstiges/topMenue';
 import Player1001 from '../assets/Images/Players/S1001.png';
 import VereinsLogo from '../assets/Images/Players/VereinsLogo.jpg';
 import KarteS1001 from '../assets/Images/BetaKarten/Tr-02-1001.png';
+import {Route, Link} from "react-router-dom";
+import Cl1001 from '../assets/Images/BetaKarten/Cl-01-1001.png'
+import Ra1001 from '../assets/Images/BetaKarten/Ra-01-1001.png';
+import Tr1001 from '../assets/Images/BetaKarten/Tr-01-1001.png';
+
+
 function S1001(props) {
 
     const [UserName, setUserName] = useState(0);
@@ -299,23 +305,36 @@ function S1001(props) {
                 Verfügbare Editionen
               </h2>
                 <div id="BereichMidEditionenWrapper">
-                  <div id="Editionen">
-                   <div class="SingleEditionenWrapper Trophie">
-                        <img src={KarteS1001} id="SingleEditionenWrapperimg"/>
+                
+                 <div id="Editionen">
+                  <Link to="/Karten/1001-Tr">
+                     <div class="SingleEditionenWrapper Trophie">
+                        <img src={Tr1001} id="SingleEditionenWrapperimg"/>
                         <h5 id="dashboardSammlungKartenEintragH5">Trophie</h5> 
-                   </div>
+                     </div>
+                   </Link>
                   </div>
+
                   <div id="Editionen">
+                  <Link to="/Karten/1001-Ra">
+
                   <div class="SingleEditionenWrapper Rare">
-                        <img src={KarteS1001} id="SingleEditionenWrapperimg"/>
+                        <img src={Ra1001} id="SingleEditionenWrapperimg"/>
                         <h5 id="dashboardSammlungKartenEintragH5">Rare</h5> 
                    </div>
+                   </Link>
+
                   </div>
                   <div id="Editionen">
+                  <Link to="/Karten/1001-Cl">
+
                   <div class="SingleEditionenWrapper">
-                        <img src={KarteS1001} id="SingleEditionenWrapperimg"/>
+
+                        <img src={Cl1001} id="SingleEditionenWrapperimg"/>
                         <h5 id="dashboardSammlungKartenEintragH5">Classic</h5> 
                    </div>
+                   </Link>
+
                   </div>
                 </div>
             </div>

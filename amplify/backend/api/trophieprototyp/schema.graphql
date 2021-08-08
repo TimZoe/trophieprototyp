@@ -7,4 +7,5 @@ type Karte @model {
   Owner: String!
   SpielerLink: String!
   SpielerName: String!
+  KartenLink: String!
 }

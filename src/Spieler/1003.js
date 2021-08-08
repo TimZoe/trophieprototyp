@@ -9,6 +9,17 @@ import TopMenue from '../components/sonstiges/topMenue';
 import Player1003 from '../assets/Images/Players/S1003.png';
 import VereinsLogo from '../assets/Images/Players/VereinsLogo.jpg';
 import KarteS1001 from '../assets/Images/BetaKarten/Tr-02-1001.png';
+import {Route, Link} from "react-router-dom";
+
+import Cl1003 from '../assets/Images/BetaKarten/Cl-01-1003.png'
+import Ra1003 from '../assets/Images/BetaKarten/Ra-01-1003.png';
+import Tr1003 from '../assets/Images/BetaKarten/Tr-01-1003.png';
+
+
+
+
+
+
 function S1003(props) {
 
     const [UserName, setUserName] = useState(0);
@@ -300,22 +311,31 @@ function S1003(props) {
               </h2>
                 <div id="BereichMidEditionenWrapper">
                   <div id="Editionen">
+                  <Link to="/Karten/1003-Tr">
+
                    <div class="SingleEditionenWrapper Trophie">
-                        <img src={KarteS1001} id="SingleEditionenWrapperimg"/>
+                        <img src={Tr1003} id="SingleEditionenWrapperimg"/>
                         <h5 id="dashboardSammlungKartenEintragH5">Trophie</h5> 
                    </div>
+                  </Link>
                   </div>
                   <div id="Editionen">
+                  <Link to="/Karten/1003-Ra">
+
                   <div class="SingleEditionenWrapper Rare">
-                        <img src={KarteS1001} id="SingleEditionenWrapperimg"/>
+                        <img src={Ra1003} id="SingleEditionenWrapperimg"/>
                         <h5 id="dashboardSammlungKartenEintragH5">Rare</h5> 
                    </div>
+                   </Link>
                   </div>
                   <div id="Editionen">
+                  <Link to="/Karten/1003-Cl">
+
                   <div class="SingleEditionenWrapper">
-                        <img src={KarteS1001} id="SingleEditionenWrapperimg"/>
+                        <img src={Cl1003} id="SingleEditionenWrapperimg"/>
                         <h5 id="dashboardSammlungKartenEintragH5">Classic</h5> 
                    </div>
+                   </Link>
                   </div>
                 </div>
             </div>

@@ -12,6 +12,7 @@ export const getKarte = /* GraphQL */ `
       Owner
       SpielerLink
       SpielerName
+      KartenLink
       createdAt
       updatedAt
     }
@@ -33,6 +34,7 @@ export const listKartes = /* GraphQL */ `
         Owner
         SpielerLink
         SpielerName
+        KartenLink
         createdAt
         updatedAt
       }
