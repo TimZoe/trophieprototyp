@@ -90,7 +90,7 @@ function DashboardLanding(props) {
                 setTrophieKartenUser(count1)
           }
           else {
-            console.log('Keine Trophie Karte')
+            
           }               
       })}
       //Hilfsvariable
@@ -104,7 +104,7 @@ function DashboardLanding(props) {
                 setRareKartenUser(count2)
           }
           else {
-            console.log('Keine Rare Karte')
+          
           }               
       })}
       var count3=0;
@@ -114,10 +114,10 @@ function DashboardLanding(props) {
         userKarten.map(ArrayCKC => {
             if(ArrayCKC.Edition.includes("Rare") == true) {
                 count3 ++;                  
-                setClassicKartenUser(count2)
+                setClassicKartenUser(count3)
           }
           else {
-            console.log('Keine Rare Karte')
+            
           }               
       })}
       
@@ -136,60 +136,31 @@ function DashboardLanding(props) {
         TrophieScorehilf=TrophieKartenUser*10+RareKartenUser*5+ClassicKartenUser*1;
         setTrophieScore(TrophieScorehilf)
       }
-
-      
-      
-
-
-
-   
-
-
-      getUserName();
-
+      const [rndmState, setrndmState] = useState(1)
      
+      useEffect(() => {
+        console.log("welcome to Landing")
+        console.log(props.userrKarten)
+        console.log(props.userrName)
+        setUserName(props.userrName)
+        console.log(props.userrWert)
+        setWertUserKarten(props.userrWert)
 
-
-
-      useEffect(()=> {
-        getUserKarten();
-        
-      },[Kartes])
-
-
-      useEffect(()=> {
-       
-        UserWert();
-           
-      },[userKarten])
-
-      useEffect(()=> {
-       
-        TrophieScoreBerechnen();
-      AlleUserClassicKartenCounter();
-      AlleUserTrophieKartenCounter();
-      AlleUserRareKartenCounter();
-           
-      },[UserWert])
+        console.log(props.userrTrophieScore)
+        setTrophieScore(props.userrTrophieScore)
+        console.log(props.userrTrophieKartenAnzahl)
+        setTrophieKartenUser(props.userrTrophieKartenAnzahl)
+        console.log(props.userrRareKartenAnzahl)
+        setRareKartenUser(props.userrRareKartenAnzahl)
+      })
       
+      useEffect(()=> {
 
-
-
+      })
       
-
-
-      function DataTrigger () {
-
-      }
-
-
-
-
-   
-
 
     return (props.trigger) ?(
-      <div onLoad={fetchKarten} >
+      <div >
           <div id="dbLandingContent">
           {props.children}
             <div id="dbOben">

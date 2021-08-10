@@ -9,6 +9,9 @@ import {listKartes} from '../../graphql/queries';
 import { Auth } from 'aws-amplify';
 import CloseImg from '../../assets/Images/closeImg.png';
 import {Route, Link} from "react-router-dom";
+import bigger from '../../assets/Images/bigger.png'
+import closetight from '../../assets/Images/closetight.png'
+
 
 
 function HandelsPopUp(props) {
@@ -26,18 +29,6 @@ function HandelsPopUp(props) {
 
 
 
-    function BuyCard () {
-      console.log("BuyingProzessStarte")
-      getUserName();
-      //Check User Balance: Anname immer genug
-      //Danch nur Change Owner mit dieser Karte
-      changeOwner(props.Karte, UserName)
-      setKarteoffSaleF(props.Karte);
-      //Dann Balance updatn minus Preis
-
-      props.setTrigger(false);
-
-    }
           const zuwechselndeKarte =[]
           async function changeOwner (zuwechselndeKarte, newOwner) {
             getUserName();
@@ -66,59 +57,132 @@ function HandelsPopUp(props) {
 
 
 
-          async function setKarteoffSaleF (karte) {
-  
-            console.log('Beginn setKarteoFFsale')
-            const Karte=karte
           
-            
+
+          async function setKarteonSaleF () {
+
+            console.log(props.Karte)
+            console.log('Beginn setKarteonsale')
            
-            Karte.onSale=false
-          
+            const Karte=props.Karte
+            console.log(Karte)
+            console.log(console.log(Karte.onSale))
+           
+            Karte.onSale=true
+            console.log(console.log(Karte.onSale))
+
             delete Karte.createdAt;
             delete Karte.updatedAt;
-          
+            console.log(console.log(Karte.onSale))
             const KarteData = await API.graphql(graphqlOperation(updateKarte, {input:Karte}))
-           // const KarteList= [...Kartes];
-            karte = KarteData.data.updateKarte;
-            console.log('finish setKarteooffsale')
+            
+            
+            console.log('finish setKarteonsale')
           
           }
 
 
 
+
+          const [index, setindex] = useState(1);
+          const [userKarten, setuserKarten] = useState([])
+          const [MorePopUpInhalt, setMorePopUpInhalt] =useState([])
+
+          useEffect (() =>{
+            console.log(props.userrKarten)
+          })
+
+          function fetchUserKarten () {
+            console.log("Ss")
+            console.log(props.userrKarten)
+            setuserKarten(props.userrKarten)
+            console.log(props.userrKarten)
+
+          }
+
+
+
+
+
+
     return (props.trigger) ?(
-      <div id="fullShowmoreSammlung">
+      <div id="fullShowmoreSammlung" onLoad={fetchUserKarten}>
 
-          <div id="KartenInfos">
-            <h2 id="ShowMoreKartenId">{props.Karte.id}</h2>
-            <div id="KartenInfosWrapper">
+          <div id="ShowMoreSammlungtop">
 
-              <div id="showMoreINfoWrapper">
-                <h3 id="showMoreINfoWrapperH3">
-                  Infos
+              <div id="ShowMoreSammlungcloscollumn">
+                <div id="ecclipseclose">
+                <button id="close-btns" 
+                           onClick={() => props.setTrigger(false)}>
+
+                    <img src={closetight} id="closetight"/>
+                </button>
+                </div>
+              </div>
+
+              <div id="KarteWrapper">
+                <img src={props.Karte.Bild} id="ShowMoreSammlungBild"/>
+              </div>
+
+          </div>
+
+          <div id="ShowMoreSammlungunten">
+
+             <Link to={props.Karte.KartenLink}>
+               
+                <div id="SammlungMorecloseecclipse">
+                  <img src={bigger} id="biggerimg"/>
+                </div>
+
+            </Link> 
+
+
+
+            <h2 id="showMoreSammlungidh4">
+              {props.Karte.id}
+            </h2>
+
+            <div id="showMoreSammlungInfoWrapper">
+              <div id="showMoreSammlungInfoBub">
+                <h3 id="showMoreSammlungh3">
+                  {props.Karte.Preis} €
                 </h3>
-                <h4 id="showMoreINfoWrapperh4">Beschreibung</h4>
+                <h4 id="showMoreSammlungh4">
+                  Preis
+                </h4>
+              </div>
+              <div id="showMoreSammlungInfoBub">
+                <h3 id="showMoreSammlungh3">
+                  {props.Karte.SpielerName} 
+                </h3>
+                <h4 id="showMoreSammlungh4">
+                  Spieler
+                </h4>
               </div>
 
             </div>
-           
             
+
+            <div id="showMoreSammlungButtonWrapper">
+
+
+
+              <div 
+              onClick={function (){setKarteonSaleF(index)}}
+              id="showMoreSammlungVerkaufenBut">
+                Sell
+              </div>
+
+
+
+
+            </div>
+
+
           </div>
 
 
 
-
-          <div id="ShoreMoreSammmlungButtomWrapper">
-            <div id="showMore">
-              Mehr
-            </div>
-
-            <div id="setOnsale">
-              Verkaufen
-            </div>
-
-          </div>
 
        </div>
     ):""; 

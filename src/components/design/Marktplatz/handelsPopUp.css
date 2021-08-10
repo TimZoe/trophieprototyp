@@ -1,16 +1,144 @@
 #fullShowmoreSammlung {
-  width: 100%;
+  width: 100vw;
   display: flex;
-  flex-direction: row;
-  height: 100%;
+  flex-direction: column;
+  height: 88vh;
+  position: absolute;
+  top: 12vh;
+  left: 0;
+  background-color: rgb(195, 235, 239);
 }
 
-#KartenInfos {
-  width: 65%;
-  padding-right: 5%;
+#ShowMoreSammlungtop {
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+#ShowMoreSammlungcloscollumn {
+  width: 20%;
+  padding-top: 1vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#ecclipseclose {
+  border-radius: 100%;
+  width: 15vw;
+  background-color: white;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  height: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#KarteWrapper {
+  width: 60%;
+  padding-right: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#close-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+#closetight {
+  width: 8vw;
+}
+
+#ShowMoreSammlungBild {
+  width: 40vw;
+  border-radius: 4vw;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+#ShowMoreSammlungunten {
+  background-color: white;
+  border-radius: 6vw;
+  display: flex;
+  height: 40%;
+  flex-direction: column;
+  padding-left: 15vw;
+  padding-top: 5vh;
+  position: relative;
+}
+
+#showMoreSammlungidh4 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 7vw;
+  font-weight: 700;
+  margin: 0;
+}
+#SammlungMorecloseecclipse {
+  border-radius: 100%;
+  width: 18vw;
+  background-color: white;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  height: 18vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -5vh;
+  right: 5vw;
+  position: absolute;
+}
+#biggerimg {
+  width: 8vw;
+}
+
+#showMoreSammlungInfoWrapper {
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 4vh;
+}
+#showMoreSammlungInfoBub {
   display: flex;
   flex-direction: column;
 }
+#showMoreSammlungh3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 5vw;
+  font-weight: 700;
+  margin: 0;
+}
+#showMoreSammlungh4 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 4vw;
+  font-weight: 500;
+  margin: 0;
+  margin-top: 1vh;
+}
+#showMoreSammlungButtonWrapper {
+  margin-top: 4vh;
+  display: flex;
+  justify-content: center;
+  padding-right: 15vw;
+}
+#showMoreSammlungVerkaufenBut {
+  border-radius: 4vw;
+  width: 50vw;
+  background-color: rgb(195, 235, 239);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  font-family: Montserrat;
+  color: black;
+  font-size: 6vw;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+}
+
 #ShoreMoreSammmlungButtomWrapper {
   width: 30%;
   display: flex;

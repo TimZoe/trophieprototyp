@@ -35,14 +35,180 @@ function DashboardSammlung(props) {
 
 
   
+    //Diese speichert den UserNamen in const UserName
+    async function getUserName() {     
+     
+        const session = await Auth.currentSession();  
+        setUserName(session.idToken.payload['cognito:username']);
+    }
+  
+  
+    //Diese Karten ziehen die Karten von der API und speichert in ein Array (Kartes)
+    const fetchKartenSa = async () => {
+  
+        try {
+          const KarteData = await API.graphql(graphqlOperation(listKartes));
+          const KarteList = KarteData.data.listKartes.items;
+         
+          setKartes(KarteList)
+        }
+        catch(error) {
+          console.log(error)
+        }
+     }
+  
+     //Diese Funktion speichert die Karten die dem UserNamen gehören in ein
+     //Array (UserKarten)
+    
+     //Hilfsvariable
+     var newuserArray= []
+  
+     function getUserKarten()  {
+     
+       Kartes.map(Karte => {  
+  
+         if(Karte.Owner.includes(UserName) == true) {                                     
+           newuserArray.push(Karte)        
+           setuserKarten(newuserArray)              
+         }
+         else {
+        
+         }               
+        })}
+
+      //Diese Funktion bildet ein Array für Trophie Karten des Users
+
+      var newuserTrophieArray= []
+  
+     function getTrophieUserKarten()  {
+     
+       userKarten.map(Karte => {  
+  
+         if(Karte.Edition.includes("Trophie") == true) {                                     
+           newuserTrophieArray.push(Karte)        
+           setuserTrophieKarten(newuserTrophieArray)              
+         }
+         else {
+        
+         }               
+        })}
+   //Diese Funktion bildet ein Array für Trophie Karten des Users
+
+   var newuserRareArray= []
+  
+   function getRareUserKarten()  {
    
+     userKarten.map(Karte => {  
+
+       if(Karte.Edition.includes("Rare") == true) {                                     
+        newuserRareArray.push(Karte)        
+         setuserRareKarten(newuserRareArray)              
+       }
+       else {
+      
+       }               
+      })}
+      var newuserClassicArray= []
+  
+   function getClassicUserKarten()  {
+   
+     userKarten.map(Karte => {  
+
+       if(Karte.Edition.includes("Classic") == true) {                                     
+        newuserClassicArray.push(Karte)        
+         setuserClassicKarten(newuserClassicArray)              
+       }
+       else {
+      
+       }               
+      })}
+
+      
+       
+      //Diese Funktion berechnet den Wert der User Karten
+      var HWertUserKarten=0
+  
+      function UserWert () {
+  
+          userKarten.map(ArrayUK => { 
+          HWertUserKarten = HWertUserKarten + ArrayUK.Preis
+          setWertUserKarten(HWertUserKarten)
+        })}
+  
+  
+      //Hilfsvariable
+      var count1=0;
+      //Diese Funktion zählt alle TrophieKarten des Users
+        function AlleUserTrophieKartenCounter () {  
+  
+          userKarten.map(ArrayTKC => {
+              if(ArrayTKC.Edition.includes("Trophie") == true) {
+                  count1 ++;                  
+                  setTrophieKartenUser(count1)
+            }
+            else {
+              console.log('Keine Trophie Karte')
+            }               
+        })}
+        //Hilfsvariable
+      var count2=0;
+      //Diese Funktion zählt alle Rare Karten des Users
+        function AlleUserRareKartenCounter () {  
+  
+          userKarten.map(ArrayRKC => {
+              if(ArrayRKC.Edition.includes("Rare") == true) {
+                  count2 ++;                  
+                  setRareKartenUser(count2)
+            }
+            else {
+              console.log('Keine Rare Karte')
+            }               
+        })}
+        var count3=0;
+        //Diese Funktion zählt alle Classic Karten des Users
+          function AlleUserClassicKartenCounter () {  
+    
+            userKarten.map(ArrayCKC => {
+                if(ArrayCKC.Edition.includes("Classic") == true) {
+                    count3 ++;                  
+                    setClassicKartenUser(count3)
+              }
+              else {
+                console.log('Keine Rare Karte')
+              }               
+          })}
+          
+          //Diese Funktion zählt alle User Karten
+         var counter4=0;
+          function AlleUserKartenCounter () {
+            counter4=ClassicKartenUser+RareKartenUser+TrophieKartenUser;
+            setuserKartenAnzahl(counter4)
+          }
+        
+        
+          //Diese Funktion berechnet den Trophie Score der User
+          var TrophieScorehilf=0
+          function TrophieScoreBerechnen () {
+            
+            TrophieScorehilf=TrophieKartenUser*10+RareKartenUser*5;
+            setTrophieScore(TrophieScorehilf)
+          }
+      
+      
+      
+        //Diese Funktion berechnet den Trophie Score der User
+        var TrophieScorehilf=0
+        function TrophieScoreBerechnen () {
+          
+          TrophieScorehilf=TrophieKartenUser*10+RareKartenUser*5;
+          setTrophieScore(TrophieScorehilf)
+        }
         useEffect(() => {
           console.log("welcome to Sammlung")
           console.log(props.userrKarten)
           console.log(props.userrName)
           setUserName(props.userrName)
          
-          
   
           
           console.log(props.userrTrophieKartenAnzahl)
@@ -50,15 +216,7 @@ function DashboardSammlung(props) {
           console.log(props.userrRareKartenAnzahl)
           setRareKartenUser(props.userrRareKartenAnzahl)
           console.log(props.userrClassicKartenAnzahl)
-          setClassicKartenUser(props.userrClassicKartenAnzahl)
-
-
-          console.log(props.userrClassicKartenUser)
-          setuserClassicKarten(props.userrClassicKartenUser)
-          console.log(props.userrRareKartenUser)
-          setuserRareKarten(props.userrRareKartenUser)
-          console.log(props.userrTrophieKartenUser)
-          setuserTrophieKarten(props.userrTrophieKartenUser)
+          setRareKartenUser(props.userrClassicKartenAnzahl)
         })
 
      
@@ -143,12 +301,7 @@ function DashboardSammlung(props) {
         
                <div id="DashboardSammlungKartenMoreInfo">
                <HandelsPopUpComp
-                    trigger={HandelsPopUp} 
-                    setTrigger={setHandelsPopUp} 
-                    Karte={MorePopUpInhalt}  
-                    Kartee={MorePopUpInhalt}
-                     
-           
+        trigger={HandelsPopUp} setTrigger={setHandelsPopUp}  Karte={MorePopUpInhalt}         
                          
         />
                

@@ -26,110 +26,24 @@ function PacksInhalt(props) {
   const [userKarten, setuserKarten]= useState([]);
 
 
-  async function getUserName() {     
-   
-    const session = await Auth.currentSession();  
-    setUserName(session.idToken.payload['cognito:username']);
-}
-
-const fetchKarten = async () => {
-
-    try {
-      const KarteData = await API.graphql(graphqlOperation(listKartes));
-      const KarteList = KarteData.data.listKartes.items;
-      console.log(KarteList);
-      setKartes(KarteList)
-    }
-    catch(error) {
-      console.log(error)
-    }
- }
- var newuserArray= []
-
-   function getUserKarten()  {
-   
-     Kartes.map(Karte => {  
-
-       if(Karte.Owner.includes(UserName) == true) {                                     
-         newuserArray.push(Karte)        
-         setuserKarten(newuserArray)              
-       }
-       else {
-      
-       }               
-      })}
 
 
 
-        function DataTrigger () {
-          
-                fetchKarten();
-                getUserName();
-                getUserKarten();
-        }
 
-var HelpOwnerTrophieKartenArray= []  
-function BuildOwneristTrophieArray () {
-    Kartes.map(Karte => {  
-         
-        if(Karte.Owner.includes("trophie") == true) {                                     
-          HelpOwnerTrophieKartenArray.push(Karte)        
-          setownerTrophieKartenArray(HelpOwnerTrophieKartenArray)              
-        }
-        else {
-       
-        }               
-       })}
+useEffect(()=> {
 
-       Math.random();
-       Math.floor(1.9999);
-       Math.floor(1)
+  setpackInhaltCard(props.packsInhaltCard)
+})
 
- function indxfinder (limit) {
-    return Math.floor(Math.random()*Math.floor(limit));
-          }
-          
 
- function createpackInhaltCard () {
-    setpackInhaltCard(ownerTrophieKartenArray[indxfinder(ownerTrophieKartenArray.length)])
- }
 
- async function übergabeanuser () {
-    const Karte=packInhaltCard;
-    var Besitzer= Karte.Owner;
-    Besitzer =UserName;
-            Karte.Owner=Besitzer;
-            delete Karte.createdAt;
-            delete Karte.updatedAt;
-
-            const KarteData = await API.graphql(graphqlOperation(updateKarte, {input:Karte}))
-            const KarteList= [...ownerTrophieKartenArray];
-            setpackInhaltCard(KarteData.data.updateKarte)
-            console.log(packInhaltCard)
-}
 
     return (props.trigger) ?(
       <div>
           <div id="packInhaltWrapper">
             <div id="packsInhaltWrapper">
-            <button onClick={DataTrigger}>
-              1                   
-            </button>
-            &nbsp; &nbsp;  &nbsp;   &nbsp;  &nbsp; 
-
-
-
-            <button onClick={BuildOwneristTrophieArray}>
-                    2
-                </button>
-                &nbsp; &nbsp;  &nbsp;   &nbsp;  &nbsp; 
-            <button onClick={createpackInhaltCard}>3</button>
-                
-                &nbsp; &nbsp;  &nbsp;   &nbsp;  &nbsp; 
-              <button onClick={übergabeanuser}>
-                4
-              </button>
-                &nbsp; &nbsp;  &nbsp;   &nbsp;  &nbsp; 
+            
+             
 
 
                 <h2 id="countdownHeader">
