@@ -12,6 +12,7 @@ import topMenueLogo from '../../assets/Images/trophieLogoclean.png';
 import {Route, Link} from "react-router-dom";
 import menueButton from '../../assets/Images/menuebottomwhite.png';
 import Playerimg from '../../assets/Images/Players/S1001.png'
+import {updateKarte} from '../../graphql/mutations'
 
 function Cl1001(props) {
 
@@ -21,18 +22,7 @@ function Cl1001(props) {
     const [UserName, setUserName] = useState(0);
     const [Kartes, setKartes] = useState ([]);
     const [userKarten, setuserKarten]= useState([]);
-    const [WertUserKarten, setWertUserKarten] = useState(0);
-    const [TrophieKartenUser, setTrophieKartenUser] = useState(0);
-    const [RareKartenUser, setRareKartenUser] = useState(0);
-    const [ClassicKartenUser, setClassicKartenUser] = useState(0);
-    const [TrophieScore, setTrophieScore] = useState(0);
-    const [UserKartenAnzahl, setuserKartenAnzahl] = useState(0);
-    const [userTrophieKarten, setuserTrophieKarten] = useState([]);
-    const [userRareKarten, setuserRareKarten] = useState([]);
-    const [userClassicKarten, setuserClassicKarten] = useState([]);
-    const [AlleTrophieKarten, setAlleTrophieKarten] = useState([]);
-    const [AlleRareKarten, setAlleRareKarten] = useState([]);
-    const [AlleClassicKarten, setAlleClassicKarten] = useState([]);
+    const [onSaleKarten, setonSaleKarten] = useState([]);
 
 
 
@@ -77,7 +67,7 @@ function Cl1001(props) {
      
        Kartes.map(Karte => {  
   
-         if(Karte.Owner.includes("TimZöl") == true) {                                     
+         if(Karte.Owner.includes(UserName) == true) {                                     
            newuserArray.push(Karte)        
            setuserKarten(newuserArray)              
          }
@@ -89,196 +79,51 @@ function Cl1001(props) {
 
 
     //Diese Funktion bildet ein Array mit Allen Trophie Karten
-    var newTrophieArray= []
-  
-     function getAlleTrophieKarten()  {
-     
-       Kartes.map(Karte => {  
-  
-         if(Karte.Edition.includes("Trophie") == true) {                                     
-            newTrophieArray.push(Karte)        
-           setAlleTrophieKarten(newTrophieArray)              
-         }
-         else {
-        
-         }               
-        })}
-
-        //Diese Funktion bildet ein Array mit Allen Trophie Karten
-    var newRareArray= []
-  
-    function getAlleRareKarten()  {
-    
-      Kartes.map(Karte => {  
  
-        if(Karte.Edition.includes("Rare") == true) {                                     
-            newRareArray.push(Karte)        
-          setAlleRareKarten(newRareArray)              
-        }
-        else {
-       
-        }               
-       })}
+
 
        //Diese Funktion bildet ein Array mit Allen Classic Karten
-    var newClassicArray= []
-  
-    function getAlleClassicKarten()  {
-    
-      Kartes.map(Karte => {  
- 
-        if(Karte.Edition.includes("Classic") == true) {                                     
-            newClassicArray.push(Karte)        
-          setAlleClassicKarten(newClassicArray)              
-        }
-        else {
-       
-        }               
-       })}
+
 
       //Diese Funktion bildet ein Array für Trophie Karten des Users
 
-    var newuserTrophieArray= []
-  
-     function getTrophieUserKarten()  {
-     
-       userKarten.map(Karte => {  
-  
-         if(Karte.Edition.includes("Trophie") == true) {                                     
-           newuserTrophieArray.push(Karte)        
-           setuserTrophieKarten(newuserTrophieArray)              
-         }
-         else {
-        
-         }               
-        })}
-   //Diese Funktion bildet ein Array für Trophie Karten des Users
 
-   var newuserRareArray= []
-  
-   function getRareUserKarten()  {
-   
-     userKarten.map(Karte => {  
-
-       if(Karte.Edition.includes("Rare") == true) {                                     
-        newuserRareArray.push(Karte)        
-         setuserRareKarten(newuserRareArray)              
-       }
-       else {
-      
-       }               
-      })}
-      var newuserClassicArray= []
-  
-   function getClassicUserKarten()  {
-   
-     userKarten.map(Karte => {  
-
-       if(Karte.Edition.includes("Classic") == true) {                                     
-        newuserClassicArray.push(Karte)        
-         setuserClassicKarten(newuserClassicArray)              
-       }
-       else {
-      
-       }               
-      })}
-
-      
-       
-      //Diese Funktion berechnet den Wert der User Karten
-      var HWertUserKarten=0
-  
-      function UserWert () {
-  
-          userKarten.map(ArrayUK => { 
-          HWertUserKarten = HWertUserKarten + ArrayUK.Preis
-          setWertUserKarten(HWertUserKarten)
-        })}
-  
-  
-      //Hilfsvariable
-      var count1=0;
-      //Diese Funktion zählt alle TrophieKarten des Users
-        function AlleUserTrophieKartenCounter () {  
-  
-          userKarten.map(ArrayTKC => {
-              if(ArrayTKC.Edition.includes("Trophie") == true) {
-                  count1 ++;                  
-                  setTrophieKartenUser(count1)
-            }
-            else {
-              console.log('Keine Trophie Karte')
-            }               
-        })}
-        //Hilfsvariable
-      var count2=0;
-      //Diese Funktion zählt alle Rare Karten des Users
-        function AlleUserRareKartenCounter () {  
-  
-          userKarten.map(ArrayRKC => {
-              if(ArrayRKC.Edition.includes("Rare") == true) {
-                  count2 ++;                  
-                  setRareKartenUser(count2)
-            }
-            else {
-              console.log('Keine Rare Karte')
-            }               
-        })}
-        var count3=0;
-        //Diese Funktion zählt alle Classic Karten des Users
-          function AlleUserClassicKartenCounter () {  
-    
-            userKarten.map(ArrayCKC => {
-                if(ArrayCKC.Edition.includes("Rare") == true) {
-                    count3 ++;                  
-                    setClassicKartenUser(count2)
-              }
-              else {
-                console.log('Keine Rare Karte')
-              }               
-          })}
-          
-          //Diese Funktion zählt alle User Karten
-         var counter4=0;
-          function AlleUserKartenCounter () {
-            counter4=ClassicKartenUser+RareKartenUser+TrophieKartenUser;
-            setuserKartenAnzahl(counter4)
-          }
         
         
-          //Diese Funktion berechnet den Trophie Score der User
-          var TrophieScorehilf=0
-          function TrophieScoreBerechnen () {
-            
-            TrophieScorehilf=TrophieKartenUser*10+RareKartenUser*5;
-            setTrophieScore(TrophieScorehilf)
-          }
-      
-      
-      
-        //Diese Funktion berechnet den Trophie Score der User
-        var TrophieScorehilf=0
-        function TrophieScoreBerechnen () {
-          
-          TrophieScorehilf=TrophieKartenUser*10+RareKartenUser*5;
-          setTrophieScore(TrophieScorehilf)
+
+        function setonSale () {
+          console.log("D")
         }
+        const zuwechselndeKarte =[]
+        async function changeOwner (zuwechselndeKarte, newOwner) {
+          
+          console.log('Beginn Chamge Owner')
+
+          console.log(zuwechselndeKarte)
+          console.log(zuwechselndeKarte.Owner)
+          console.log("switch to " + newOwner)
+
+          const Karte=zuwechselndeKarte
+
+          var Besitzer= Karte.Owner;
+          console.log(Besitzer+'Besitzer initial')
+          Besitzer =newOwner;
+          Karte.Owner=Besitzer
+
+          delete Karte.createdAt;
+          delete Karte.updatedAt;
+
+          const KarteData = await API.graphql(graphqlOperation(updateKarte, {input:Karte}))
+          const KarteList= [...Kartes];
+          zuwechselndeKarte = KarteData.data.updateKarte;
+
+        }
+
   
   
         function Wrap () {
           getUserKarten();
-          UserWert();
-          AlleUserTrophieKartenCounter();
-          AlleUserRareKartenCounter();
-          AlleUserClassicKartenCounter();
-          AlleUserKartenCounter();
-          TrophieScoreBerechnen();
-          getTrophieUserKarten();
-          getRareUserKarten();
-          getClassicUserKarten();
-          getAlleTrophieKarten();
-          getAlleRareKarten();
-          getAlleClassicKarten();
+     
 
 
         }
@@ -358,7 +203,9 @@ function Cl1001(props) {
                       </div>
 
                     </div>
-
+                    <div id="">
+                        <button id="bb" onClick={setonSale}>Set on Sale</button>
+                    </div>
 
                     <div id="backCardbottom">
 

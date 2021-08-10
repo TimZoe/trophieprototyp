@@ -8,4 +8,5 @@ type Karte @model {
   SpielerLink: String!
   SpielerName: String!
   KartenLink: String!
+  onSale: Boolean!
 }

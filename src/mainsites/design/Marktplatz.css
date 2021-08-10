@@ -1,0 +1,13 @@
+#alleMarktplatzKartenWrapper {
+  padding-left: 5vw;
+  padding-top: 5vh;
+}
+#AlleKartenGridMarktplatz {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1vw;
+  width: 90vw;
+  grid-auto-rows: 20vh;
+  grid-auto-columns: 25vw;
+  padding-left: 0;
+}

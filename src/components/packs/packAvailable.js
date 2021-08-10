@@ -4,7 +4,7 @@ import PackVorschau from '../../assets/Images/PackVorschau.png'
 function packsAvailable(props) {
     return (props.trigger) ?(
       <div>
-
+           
             <div id="packsAvailbaleWrapper">
             {props.children}
 

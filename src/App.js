@@ -16,6 +16,11 @@ import test from './mainsites/test'
 import test2 from './mainsites/tesst'
 
 import alleKarten from './mainsites/alleKarten'
+import Marktplatz from './mainsites/Marktplatz'
+
+
+
+
 import S1001 from './Spieler/1001';
 import S1002 from './Spieler/1002';
 import S1003 from './Spieler/1003';
@@ -69,6 +74,12 @@ function App() {
        <Route exact path="/test" component={test} />
        <Route exact path="/test2" component={test2} />
        <Route exact path="/alleKarten" component={alleKarten} />
+       <Route exact path="/Marktplatz" component={Marktplatz} />
+
+
+
+
+
        <Route exact path="/Spieler/1001" component={S1001} />
        <Route exact path="/Spieler/1002" component={S1002} />
        <Route exact path="/Spieler/1003" component={S1003} />

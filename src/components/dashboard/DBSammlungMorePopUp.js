@@ -1,28 +1,15 @@
-import "./design/test.css"
-import awsconfig from '../aws-exports';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
-import LogInSuc from '../components/sonstiges/LogInSuc';
+
+import '../design/dashboard/DBSammlungMore.css';
+import moreImg from '../../assets/Images/buttonImg.png'
+import lilaCard from '../../assets/Images/CardLila.png'
 import { useState, useEffect } from 'react';
 import Amplify, { API, graphqlOperation } from "aws-amplify";
-import {listKartes} from '../graphql/queries';
+import {listKartes} from '../../graphql/queries';
 import { Auth } from 'aws-amplify';
 
-import {updateKarte} from '../graphql/mutations'
-import img1 from '../assets/Images/BetaKarten/Cl-01-1002.png'
-import img2 from '../assets/Images/BetaKarten/Cl-01-1001.png'
 
+function DBSammlungMorePopUp(props) {
 
-
-Amplify.configure(awsconfig);
-
-
-
-
-
-function Test() {
-
-  
-    
   const [UserName, setUserName] = useState(0);
   const [Kartes, setKartes] = useState ([]);
   const [userKarten, setuserKarten]= useState([]);
@@ -35,8 +22,9 @@ function Test() {
   const [userTrophieKarten, setuserTrophieKarten] = useState([]);
   const [userRareKarten, setuserRareKarten] = useState([]);
   const [userClassicKarten, setuserClassicKarten] = useState([]);
-  const [ownerTrophieKartenArray, setownerTrophieKartenArray] = useState([]);
-
+  const [AlleTrophieKarten, setAlleTrophieKarten] = useState([]);
+  const [AlleRareKarten, setAlleRareKarten] = useState([]);
+  const [AlleClassicKarten, setAlleClassicKarten] = useState([]);
 
 
 
@@ -90,9 +78,59 @@ function Test() {
        }               
       })}
 
+
+
+  //Diese Funktion bildet ein Array mit Allen Trophie Karten
+  var newTrophieArray= []
+
+   function getAlleTrophieKarten()  {
+   
+     Kartes.map(Karte => {  
+
+       if(Karte.Edition.includes("Trophie") == true) {                                     
+          newTrophieArray.push(Karte)        
+         setAlleTrophieKarten(newTrophieArray)              
+       }
+       else {
+      
+       }               
+      })}
+
+      //Diese Funktion bildet ein Array mit Allen Trophie Karten
+  var newRareArray= []
+
+  function getAlleRareKarten()  {
+  
+    Kartes.map(Karte => {  
+
+      if(Karte.Edition.includes("Rare") == true) {                                     
+          newRareArray.push(Karte)        
+        setAlleRareKarten(newRareArray)              
+      }
+      else {
+     
+      }               
+     })}
+
+     //Diese Funktion bildet ein Array mit Allen Classic Karten
+  var newClassicArray= []
+
+  function getAlleClassicKarten()  {
+  
+    Kartes.map(Karte => {  
+
+      if(Karte.Edition.includes("Classic") == true) {                                     
+          newClassicArray.push(Karte)        
+        setAlleClassicKarten(newClassicArray)              
+      }
+      else {
+     
+      }               
+     })}
+
     //Diese Funktion bildet ein Array für Trophie Karten des Users
 
-    var newuserTrophieArray= []
+  var newuserTrophieArray= []
 
    function getTrophieUserKarten()  {
    
@@ -178,6 +216,7 @@ function Test() {
             console.log('Keine Rare Karte')
           }               
       })}
+
       var count3=0;
       //Diese Funktion zählt alle Classic Karten des Users
         function AlleUserClassicKartenCounter () {  
@@ -217,175 +256,35 @@ function Test() {
         TrophieScorehilf=TrophieKartenUser*10+RareKartenUser*5;
         setTrophieScore(TrophieScorehilf)
       }
-    
-    
-          function WrapTEST () {
-            
-            getUserKarten();
-            UserWert();
-            AlleUserTrophieKartenCounter();
-            AlleUserRareKartenCounter();
-            AlleUserClassicKartenCounter();
-            AlleUserKartenCounter();
-            TrophieScoreBerechnen();
-            getTrophieUserKarten();
-            getRareUserKarten();
-            getClassicUserKarten();
-            getOwneristTrophieKarten();
-            console.log('Alle Kartes' + Kartes)
-            console.log('User Karten' + userKarten)
-            console.log('UnsereKarten' + ownerTrophieKartenArray)
-
-            
-          }
-         
-
-          //Funktion fürs Tauschen
-
-          //Feld catch neuen Empfänger -> Über Karten Array
-          // und Value bei owner ändern, siehe Songs bei Video
-          //Fixed Karte Cl-01-1001
-
-           var HelpOwnerTrophieKartenArray= []
-  	      function getOwneristTrophieKarten()  {
-            
-              Kartes.map(Karte => {  
-         
-                if(Karte.Owner.includes("trophie") == true) {                                     
-                  HelpOwnerTrophieKartenArray.push(Karte)        
-                  setownerTrophieKartenArray(HelpOwnerTrophieKartenArray)              
-                }
-                else {
-               
-                }               
-               })}
-
-          
-          
-          
-          
-          
-          const zuwechselndeKarte =[]
-          async function changeOwner (zuwechselndeKarte, newOwner) {
-            
-            console.log('Beginn Chamge Owner')
-
-            console.log(zuwechselndeKarte)
-            console.log(zuwechselndeKarte.Owner)
-            console.log("switch to " + newOwner)
-
-            const Karte=zuwechselndeKarte
-
-            var Besitzer= Karte.Owner;
-            console.log(Besitzer+'Besitzer initial')
-            Besitzer =newOwner;
-            Karte.Owner=Besitzer
-
-            delete Karte.createdAt;
-            delete Karte.updatedAt;
-
-            const KarteData = await API.graphql(graphqlOperation(updateKarte, {input:Karte}))
-            const KarteList= [...Kartes];
-            zuwechselndeKarte = KarteData.data.updateKarte;
-           
-          }
 
 
+      function Wrap () {
+        getUserKarten();
+        AlleUserTrophieKartenCounter();
+        AlleUserRareKartenCounter();
+        AlleUserClassicKartenCounter();
+        AlleUserKartenCounter();
+
+        TrophieScoreBerechnen();
+        getTrophieUserKarten();
+        getRareUserKarten();
+        getClassicUserKarten();
+        getAlleTrophieKarten();
+        getAlleRareKarten();
+        getAlleClassicKarten();
+
+      }
+      
+      
+
+  return (props.trigger) ?(
+    <div id="allesDBSammlungPopUp">
 
 
+                More INfos Componentz
 
-
-
-
-
-
-          Math.random();
-          Math.floor(1.9999);
-          Math.floor(1)
-
-
-          function rndmInt(limit) {
-            return Math.floor(Math.random()*Math.floor(limit));
-          }
-          
-         
-
-          function Packs2 (){
-            getOwneristTrophieKarten()
-            console.log(ownerTrophieKartenArray)
-            console.log('neue Karte soll bekommen ' +UserName)
-          }
-
-          //Diese Funktion bildet ein Array aus allen Karten,
-          //die noch uns gehören
-
-
-         
-
-   
-          function Packs (){
-
-            console.log('Random sstart')
-           
-            var index=rndmInt(ownerTrophieKartenArray.length);
-
-            console.log('Diese Karte' + index)
-
-            console.log(ownerTrophieKartenArray[index]);
-            changeOwner(ownerTrophieKartenArray[index],UserName) 
-         
-
-          }
-
-                
-  return (
-    <div className="register">
-         <div class="mobileWrapper">
-             
-         <button onClick={WrapTEST}>
-                 DataTrigger WRAP TEST
-          </button>
-        
-             test
-             <h2>{UserName}</h2>
-             <h2>{userKarten.Preis}</h2>
-             
-             <h2>Test für Tauschen</h2>
-             <h2>Jetztiger Besitzer tim</h2>
-             <h2>Neuer Empfänger soll werden</h2>
-
-             <button onClick={changeOwner(ownerTrophieKartenArray,"dddd")}>
-               ChangeOwner
-             </button>
-
-
-        </div>
-
-
-
-
-
-
-
-
-        <div id="rndmPacks">
-
-          Random Packs
-          <button onClick={Packs}>
-                 <h2>PacksTrigger</h2>   
-          </button>
-
-          <button onClick={Packs2}>
-            <h2>GetOwneerTrophie</h2> 
-          </button>
-          
-
-
-        </div>
-         
-
-    </div>
-  );
-}
-
-export default withAuthenticator(Test);
+     </div>
+  ):""; 
+  }
+ 
+export default DBSammlungMorePopUp;

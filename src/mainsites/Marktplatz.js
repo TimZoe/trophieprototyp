@@ -1,22 +1,15 @@
 
-import '../design/dashboard/dashboardSammlung.css';
-import moreImg from '../../assets/Images/buttonImg.png'
-import lilaCard from '../../assets/Images/CardLila.png'
+import './design/Marktplatz.css';
+
 import { useState, useEffect } from 'react';
 import Amplify, { API, graphqlOperation } from "aws-amplify";
-import {listKartes} from '../../graphql/queries';
+import {listKartes} from '../graphql/queries';
 import { Auth } from 'aws-amplify';
+import TopMenue from '../components/sonstiges/topMenue';
 import { Link } from 'react-router-dom';
-import DBSammlungMorePopUp from './DBSammlungMorePopUp'
-import HandelsPopUpComp from '../Marktplatz/handelsPopUp'
+import HandelPopUpComp from '../components/Marktplatz/handelPopUp'
 
-
-
-
-
-
-
-function DashboardSammlung(props) {
+function Marktplatz(props) {
 
     const [UserName, setUserName] = useState(0);
     const [Kartes, setKartes] = useState ([]);
@@ -30,10 +23,20 @@ function DashboardSammlung(props) {
     const [userTrophieKarten, setuserTrophieKarten] = useState([]);
     const [userRareKarten, setuserRareKarten] = useState([]);
     const [userClassicKarten, setuserClassicKarten] = useState([]);
+    const [AlleTrophieKarten, setAlleTrophieKarten] = useState([]);
+    const [AlleRareKarten, setAlleRareKarten] = useState([]);
+    const [AlleClassicKarten, setAlleClassicKarten] = useState([]);
+    const [onSaleKarten, setonSaleKarten] = useState([]);
 
 
 
-
+    useEffect(() => {
+        getUserName();
+      }, []);
+    
+      useEffect(() => {
+        fetchKarten()  
+      }, []);
   
   
     //Diese speichert den UserNamen in const UserName
@@ -50,7 +53,7 @@ function DashboardSammlung(props) {
         try {
           const KarteData = await API.graphql(graphqlOperation(listKartes));
           const KarteList = KarteData.data.listKartes.items;
-         
+          console.log(KarteList);
           setKartes(KarteList)
         }
         catch(error) {
@@ -68,7 +71,7 @@ function DashboardSammlung(props) {
      
        Kartes.map(Karte => {  
   
-         if(Karte.Owner.includes(UserName) == true) {                                     
+         if(Karte.Owner.includes("TimZöl") == true) {                                     
            newuserArray.push(Karte)        
            setuserKarten(newuserArray)              
          }
@@ -76,10 +79,60 @@ function DashboardSammlung(props) {
         
          }               
         })}
+ 
+
+
+    //Diese Funktion bildet ein Array mit Allen Trophie Karten
+    var newTrophieArray= []
+  
+     function getAlleTrophieKarten()  {
+     
+       Kartes.map(Karte => {  
+  
+         if(Karte.Edition.includes("Trophie") == true) {                                     
+            newTrophieArray.push(Karte)        
+           setAlleTrophieKarten(newTrophieArray)              
+         }
+         else {
+        
+         }               
+        })}
+
+        //Diese Funktion bildet ein Array mit Allen Trophie Karten
+    var newRareArray= []
+  
+    function getAlleRareKarten()  {
+    
+      Kartes.map(Karte => {  
+ 
+        if(Karte.Edition.includes("Rare") == true) {                                     
+            newRareArray.push(Karte)        
+          setAlleRareKarten(newRareArray)              
+        }
+        else {
+       
+        }               
+       })}
+
+       //Diese Funktion bildet ein Array mit Allen Classic Karten
+    var newClassicArray= []
+  
+    function getAlleClassicKarten()  {
+    
+      Kartes.map(Karte => {  
+ 
+        if(Karte.Edition.includes("Classic") == true) {                                     
+            newClassicArray.push(Karte)        
+          setAlleClassicKarten(newClassicArray)              
+        }
+        else {
+       
+        }               
+       })}
 
       //Diese Funktion bildet ein Array für Trophie Karten des Users
 
-      var newuserTrophieArray= []
+    var newuserTrophieArray= []
   
      function getTrophieUserKarten()  {
      
@@ -170,9 +223,9 @@ function DashboardSammlung(props) {
           function AlleUserClassicKartenCounter () {  
     
             userKarten.map(ArrayCKC => {
-                if(ArrayCKC.Edition.includes("Classic") == true) {
+                if(ArrayCKC.Edition.includes("Rare") == true) {
                     count3 ++;                  
-                    setClassicKartenUser(count3)
+                    setClassicKartenUser(count2)
               }
               else {
                 console.log('Keine Rare Karte')
@@ -204,138 +257,85 @@ function DashboardSammlung(props) {
           TrophieScorehilf=TrophieKartenUser*10+RareKartenUser*5;
           setTrophieScore(TrophieScorehilf)
         }
-        
-        
-        getUserName();
+  
+        var newonSaleArray= []
 
- 
-        useEffect(()=> {
+        function getonSaleKarten()  {
+     
+          Kartes.map(Karte => {  
+     
+            if(Karte.onSale == true) {                                     
+              newonSaleArray.push(Karte)        
+              setonSaleKarten(newonSaleArray)              
+            }
+            else {
+           
+            }               
+           })}
+
+
+
+
+  
+        function Wrap () {
           getUserKarten();
-          
-        },[Kartes])
-  
-  
-        useEffect(()=> {
-         
           UserWert();
-             
-        },[userKarten])
-  
-        useEffect(()=> {
-         
+          AlleUserTrophieKartenCounter();
+          AlleUserRareKartenCounter();
+          AlleUserClassicKartenCounter();
+          AlleUserKartenCounter();
           TrophieScoreBerechnen();
-        AlleUserClassicKartenCounter();
-        AlleUserTrophieKartenCounter();
-        AlleUserRareKartenCounter();
-             
-        },[UserWert])
-
-
-
-
-
-
-
-
-  
-      
-        const [DBSammlungMorePopUp, setDBSammlungMorePopUp] = useState(false);
-        const [HandelsPopUp, setHandelsPopUp] = useState(false);
-        const [MorePopUpInhalt, setMorePopUpInhalt] =useState([])
-
-
-  return (props.trigger) ?(
-    <div onLoad={fetchKarten}>
-        <div onLoad={console.log("D")} id="dbSammlungWrapper">
-            <div id="dbOben">
-            </div>
-
-            <div id="dbSammlungCards">
-            {props.children}
-                <h2 class="dbSammlungMidh2">Deine Karten Sammlung</h2>
-               
-
-
-
-                <div id="dbSammlungMid">
-                <div class="dbSammlungMidEintrag">
-                    <h3 class="dbSammlungMidh2">
-                        {ClassicKartenUser}
-                    </h3>
-                    <h4 class="dbSammlungMidh4">
-                        Classic
-                    </h4>
-                </div>
-                <div class="dbSammlungMidEintrag">
-                    <h3 class="dbSammlungMidh2">
-                        {RareKartenUser}
-                    </h3>
-                    <h4 class="dbSammlungMidh4">
-                        Rare
-                    </h4>
-                </div>
-                <div class="dbSammlungMidEintrag">
-                    <h3 class="dbSammlungMidh2">
-                    {TrophieKartenUser}
-
-                    </h3>
-                    <h4 class="dbSammlungMidh4">
-                        Trophie
-                    </h4>
-                </div>
-            </div>
-
-             <ul id="dashboardSammlungKartenWrapperGrid">
-                                {userTrophieKarten.map(Karte => (
-                                <li class="dashboardSammlungKartenWrapperGridEintrag Trophie"
-                                onClick={function(){setHandelsPopUp(true);setMorePopUpInhalt(Karte)} } 
-                                
-                                >
-                                   
-                                   <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                                                     
-                                  
-                                </li> ))}
-                                {userRareKarten.map(Karte => (
-                                <li class="dashboardSammlungKartenWrapperGridEintrag Rare"
-                                onClick={function(){setHandelsPopUp(true);setMorePopUpInhalt(Karte)} } 
-                                >
-                                   <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                    
-                                </li> ))}
-                                {userClassicKarten.map(Karte => (
-                                <li class="dashboardSammlungKartenWrapperGridEintrag"
-                                onClick={function(){setHandelsPopUp(true);setMorePopUpInhalt(Karte)} } 
-                                >
-                                   <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                   
-                                </li> ))}
-               </ul>
-             
-              
+          getTrophieUserKarten();
+          getRareUserKarten();
+          getClassicUserKarten();
+          getAlleTrophieKarten();
+          getAlleRareKarten();
+          getAlleClassicKarten();
+          getonSaleKarten();
 
         
-               <div id="DashboardSammlungKartenMoreInfo">
-               <HandelsPopUpComp
-        trigger={HandelsPopUp} setTrigger={setHandelsPopUp}  Karte={MorePopUpInhalt}         
+
+        }
+  
+        const [HandelPopUp, setHandelPopUp] = useState(false);
+        const [PopUpInhalt, setPopUpInhalt] =useState([])
+
+  return (
+    <div>
+        <TopMenue title="Marktplatz"/>
+        <HandelPopUpComp
+        trigger={HandelPopUp} setTrigger={setHandelPopUp}  Karte={PopUpInhalt}           
                          
         />
+            <div id="alleMarktplatzKartenWrapper">
+
+                <h2 class="dbSammlungMidh2">Marktplatz</h2>
+                <button onClick={Wrap}>
+                 DataTrigger
+                </button>
+                
                
 
+             <ul id="AlleKartenGridMarktplatz">
+               {onSaleKarten.map(Karte => (
+                             
+                              
+               <li class="AlleKartenGridEintrag"
+                onClick={function(){setHandelPopUp(true); setPopUpInhalt(Karte)} } 
+                >                         
+               <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
+               <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5> 
+                                      
+                                                                      
+                                  </li>
+                             
+                                 ))}
+                           
+               </ul>
                </div>
-                        
-           
-                   
 
-            </div>
-
-           
-
-            
-        </div>
-    
      </div>
-  ):""; 
+  );
   }
  
-export default DashboardSammlung;
+export default Marktplatz;

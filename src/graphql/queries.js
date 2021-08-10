@@ -13,6 +13,7 @@ export const getKarte = /* GraphQL */ `
       SpielerLink
       SpielerName
       KartenLink
+      onSale
       createdAt
       updatedAt
     }
@@ -35,6 +36,7 @@ export const listKartes = /* GraphQL */ `
         SpielerLink
         SpielerName
         KartenLink
+        onSale
         createdAt
         updatedAt
       }

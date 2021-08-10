@@ -12,18 +12,12 @@ import {listKartes} from '../../graphql/queries';
 
 function DashboardLanding(props) {
 
-  useEffect(() => {
-    getUserName();
-  }, []);
-
-  useEffect(() => {
-    fetchKarten()  
-  }, []);
+  
 
   const [UserName, setUserName] = useState(0);
   const [Kartes, setKartes] = useState ([]);
   const [userKarten, setuserKarten]= useState([]);
-  const [WertUserKarten, setWertUserKarten] = useState(0);
+  const [WertUserKarten, setWertUserKarten] = useState(1);
   const [TrophieKartenUser, setTrophieKartenUser] = useState(0);
   const [RareKartenUser, setRareKartenUser] = useState(0);
   const [ClassicKartenUser, setClassicKartenUser] = useState(0);
@@ -46,7 +40,6 @@ function DashboardLanding(props) {
       try {
         const KarteData = await API.graphql(graphqlOperation(listKartes));
         const KarteList = KarteData.data.listKartes.items;
-        console.log(KarteList);
         setKartes(KarteList)
       }
       catch(error) {
@@ -73,7 +66,7 @@ function DashboardLanding(props) {
        }    
 
       })
-    console.log(Kartes)}
+    console.log("UserKartendurch")}
      
     //Diese Funktion berechnet den Wert der User Karten
     var HWertUserKarten=0
@@ -140,24 +133,63 @@ function DashboardLanding(props) {
       var TrophieScorehilf=0
       function TrophieScoreBerechnen () {
         
-        TrophieScorehilf=TrophieKartenUser*10+RareKartenUser*5+1+ClassicKartenUser;
+        TrophieScorehilf=TrophieKartenUser*10+RareKartenUser*5+ClassicKartenUser*1;
         setTrophieScore(TrophieScorehilf)
       }
 
+      
+      
 
-      function WrapLanding () {
+
+
+   
+
+
+      getUserName();
+
+     
+
+
+
+      useEffect(()=> {
         getUserKarten();
+        
+      },[Kartes])
+
+
+      useEffect(()=> {
+       
         UserWert();
-        AlleUserTrophieKartenCounter();
-        AlleUserRareKartenCounter();
-        AlleUserClassicKartenCounter();
-        AlleUserKartenCounter();
+           
+      },[userKarten])
+
+      useEffect(()=> {
+       
         TrophieScoreBerechnen();
+      AlleUserClassicKartenCounter();
+      AlleUserTrophieKartenCounter();
+      AlleUserRareKartenCounter();
+           
+      },[UserWert])
+      
+
+
+
+      
+
+
+      function DataTrigger () {
 
       }
 
+
+
+
+   
+
+
     return (props.trigger) ?(
-      <div>
+      <div onLoad={fetchKarten} >
           <div id="dbLandingContent">
           {props.children}
             <div id="dbOben">
@@ -165,10 +197,7 @@ function DashboardLanding(props) {
                 <h3 class="dbh3">Willkommen</h3> &nbsp; &nbsp;<h3 class="dbh3">{UserName}</h3>
               </div>
 
-                <button onClick={WrapLanding}>
-                 DataTrigger
-                </button>
-
+                
             </div>
             <div id="mdbLandingmid">
                 <h3 class="dbh3mid">{WertUserKarten} €</h3>

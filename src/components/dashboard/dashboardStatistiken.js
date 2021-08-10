@@ -33,14 +33,6 @@ function DashboardStats(props) {
 
 
 
-  useEffect(() => {
-      getUserName();
-    }, []);
-  
-    useEffect(() => {
-      fetchKarten()  
-    }, []);
-
 
   //Diese speichert den UserNamen in const UserName
   async function getUserName() {     

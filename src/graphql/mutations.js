@@ -16,6 +16,7 @@ export const createKarte = /* GraphQL */ `
       SpielerLink
       SpielerName
       KartenLink
+      onSale
       createdAt
       updatedAt
     }
@@ -36,6 +37,7 @@ export const updateKarte = /* GraphQL */ `
       SpielerLink
       SpielerName
       KartenLink
+      onSale
       createdAt
       updatedAt
     }
@@ -56,6 +58,7 @@ export const deleteKarte = /* GraphQL */ `
       SpielerLink
       SpielerName
       KartenLink
+      onSale
       createdAt
       updatedAt
     }

@@ -1,0 +1,105 @@
+#fullHandelPopUp {
+  position: absolute;
+  background-color: white;
+  width: 70%;
+  height: 70%;
+  border-radius: 2vw;
+  border-color: black;
+  border-style: solid;
+  left: 10%;
+  top: 15%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+
+#handelPopUpTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 8vh;
+}
+#handelPopUpTopimg {
+}
+
+#handelPopUpMid {
+  display: flex;
+  flex-direction: row;
+}
+
+#handelPopUpmidCard {
+}
+#midCardBil {
+  width: 30vw;
+  border-radius: 2vw;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+#handelPopUpRight {
+  margin-left: 4vw;
+  display: flex;
+  flex-direction: column;
+}
+#handelPopUpmidh2 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 5vw;
+  font-weight: 700;
+  margin-bottom: 2vh;
+  margin-top: 0vh;
+}
+
+#handelPopUpmidh3 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 4vw;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-top: 2vh;
+}
+#handelPopUpmidh4 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 500;
+  margin-bottom: 0;
+  margin-top: 0vh;
+}
+#handelPopupButtons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3vh;
+}
+#KaufenButton {
+  width: 30vw;
+  height: 6vh;
+  background-color: rgb(195, 235, 239);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2vw;
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 700;
+}
+#MehrzuKarte {
+  width: 30vw;
+  height: 6vh;
+  background-color: rgb(195, 235, 239);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4vw;
+  border-radius: 2vw;
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 700;
+}
+#PreisentewicklungKarte {
+  margin-top: 3vh;
+}

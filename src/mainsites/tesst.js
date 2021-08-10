@@ -6,6 +6,7 @@ import Amplify, { API, graphqlOperation } from "aws-amplify";
 import {listKartes} from '../graphql/queries';
 import { Auth } from 'aws-amplify';
 import { useState, useEffect } from 'react';
+import "./design/test.css"
 
 import {updateKarte} from '../graphql/mutations'
 
@@ -31,9 +32,15 @@ function Test2() {
   const [userRareKarten, setuserRareKarten] = useState([]);
   const [userClassicKarten, setuserClassicKarten] = useState([]);
   const [ownerTrophieKartenArray, setownerTrophieKartenArray] = useState([]);
-  const [packInhaltCard, setpackInhaltCard] = useState([]);
+  const [packInhaltCard, setpackInhaltCard] = useState([]); 
+  const [onSaleKarten, setonSaleKarten] = useState([]);
 
 
+        function DataTrigger1 () {
+                fetchKarten();
+                getUserName();
+                getUserKarten();
+        }
 
   async function getUserName() {     
    
@@ -70,99 +77,97 @@ const fetchKarten = async () => {
 
 
 
-        function DataTrigger () {
-                fetchKarten();
-                getUserName();
-                getUserKarten();
-        }
+      var newonSaleArray= []
 
-var HelpOwnerTrophieKartenArray= []  
-function BuildOwneristTrophieArray () {
-    Kartes.map(Karte => {  
-         
-        if(Karte.Owner.includes("trophie") == true) {                                     
-          HelpOwnerTrophieKartenArray.push(Karte)        
-          setownerTrophieKartenArray(HelpOwnerTrophieKartenArray)              
-        }
-        else {
-       
-        }               
-       })}
-
-       Math.random();
-       Math.floor(1.9999);
-       Math.floor(1)
-
- function indxfinder (limit) {
-    return Math.floor(Math.random()*Math.floor(limit));
+      function getonSaleKarten()  {
+   
+        Kartes.map(Karte => {  
+   
+          if(Karte.onSale == true) {                                     
+            newonSaleArray.push(Karte)        
+            setonSaleKarten(newonSaleArray)              
           }
-          
+          else {
+         
+          }               
+         })}
 
- function createpackInhaltCard () {
-    setpackInhaltCard(ownerTrophieKartenArray[indxfinder(ownerTrophieKartenArray.length)])
- }
 
- async function übergabeanuser () {
-    const Karte=packInhaltCard;
-    var Besitzer= Karte.Owner;
-    Besitzer =UserName;
-            Karte.Owner=Besitzer;
-            delete Karte.createdAt;
-            delete Karte.updatedAt;
 
-            const KarteData = await API.graphql(graphqlOperation(updateKarte, {input:Karte}))
-            const KarteList= [...ownerTrophieKartenArray];
-            setpackInhaltCard(KarteData.data.updateKarte)
+
+
+
+async function setKarteonSaleF (userKartenIndex) {
+  
+  console.log('Beginn setKarteonsale')
+  const Karte=userKarten[userKartenIndex]
+
+  
+ 
+  Karte.onSale=true
+
+  delete Karte.createdAt;
+  delete Karte.updatedAt;
+
+  const KarteData = await API.graphql(graphqlOperation(updateKarte, {input:Karte}))
+  const KarteList= [...Kartes];
+  userKarten[userKartenIndex] = KarteData.data.updateKarte;
+  console.log('finish setKarteonsale')
+
 }
+
+
+
+
 return (
 
     <div>
 
-            <h2> Data Check</h2>
-            <button onClick={DataTrigger}>
-                Fetch Data
-            </button>
-            <h2>Alle Karten</h2>
-            <h3>{JSON.stringify(Kartes)}</h3>
-            <h2>Alle User Karten</h2>
-            <h3>{JSON.stringify(userKarten)}</h3>
-            <h2>Aktueller User</h2>
-            <h3>{UserName}</h3>
             
+         <div id="TestMarktplatz">
+
+        
+
+            <button onClick={DataTrigger1}>Data Trigger </button>
 
 
-            <h4>
 
 
-                Ablauf: Button triggert:<br/>
-                <button onClick={BuildOwneristTrophieArray}>
-                    BuildOwneristTrophieArray
-                </button>
+              <h2>User Karten</h2>
+              <div id="UserKartenShowTest">
 
-                <br/>
-                <h2>OwneristTrophie Array {JSON.stringify(ownerTrophieKartenArray)}</h2>
-                <br/>
-                Hierraus eine Karte auswählen<br/>
+
+                {userKarten.map((Karte, index) =>    (
+                     
+                  <li class="AlleKartenGridEintrag Rare">
+                    <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
+                    <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5> 
+                    <button onClick={function (){setKarteonSaleF(index)}} > FFDDD </button>
+
+                                 
+                  </li> ))}
                
-                 <br/>
-                <h2>{indxfinder(ownerTrophieKartenArray.length)}</h2> <br/>
-                printen index von TrophieOwnerArray <br/>
-                <button onClick={createpackInhaltCard}>createpackInhaltCardButton</button>
-                <h2>{JSON.stringify(packInhaltCard)}</h2>
+                  
+              </div>
                 <br/>
 
-                <button onClick={übergabeanuser}>
-                    Übergabe an user Button
-                </button>
-                 
-                <br/>
+              <button onClick={getonSaleKarten}>ListOnSaleCards</button>
 
-                -change owner(Input:entsprechendes Array von oben, neuer Besitzer (username))
-                <br/>
+              <h2>Alle Karten, die onSale - im Marktplatz sind</h2>
+              <div id="UserKartenShowTest">
+                {onSaleKarten.map(Karte => (
+                  <li class="AlleKartenGridEintrag Rare">
+                    <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
+                    <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5> 
+                                    
+                               
+                  </li> ))}
+              </div>
+            </div>
 
 
-            </h4>
-            
+
+
 
 
     </div>
