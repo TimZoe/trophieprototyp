@@ -8,6 +8,9 @@ import { Auth } from 'aws-amplify';
 import TopMenue from '../components/sonstiges/topMenue';
 import { Link } from 'react-router-dom';
 import HandelPopUpComp from '../components/Marktplatz/handelPopUp'
+import bigger from '../assets/Images/bigger.png'
+
+
 
 function Marktplatz(props) {
 
@@ -263,7 +266,7 @@ function Marktplatz(props) {
         function getonSaleKarten()  {
      
           Kartes.map(Karte => {  
-     
+            console.log("startGetOnSale")
             if(Karte.onSale == true) {                                     
               newonSaleArray.push(Karte)        
               setonSaleKarten(newonSaleArray)              
@@ -296,6 +299,12 @@ function Marktplatz(props) {
         
 
         }
+
+        useEffect (()=>{
+          getonSaleKarten();
+        }, [Kartes])
+
+
   
         const [HandelPopUp, setHandelPopUp] = useState(false);
         const [PopUpInhalt, setPopUpInhalt] =useState([])
@@ -303,16 +312,12 @@ function Marktplatz(props) {
   return (
     <div>
         <TopMenue title="Marktplatz"/>
+
         <HandelPopUpComp
         trigger={HandelPopUp} setTrigger={setHandelPopUp}  Karte={PopUpInhalt}           
                          
         />
-            <div id="alleMarktplatzKartenWrapper">
-
-                <h2 class="dbSammlungMidh2">Marktplatz</h2>
-                <button onClick={Wrap}>
-                 DataTrigger
-                </button>
+            <div id="alleMarktplatzKartenWrapper" onLoad={fetchKarten}>           
                 
                
 
@@ -320,12 +325,21 @@ function Marktplatz(props) {
                {onSaleKarten.map(Karte => (
                              
                               
-               <li class="AlleKartenGridEintrag"
+               <li class="MarktplatzGridEintrag"
                 onClick={function(){setHandelPopUp(true); setPopUpInhalt(Karte)} } 
-                >                         
-               <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-               <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5> 
-                                      
+                > 
+                                        
+                   <img src={Karte.Bild} id="MarktplatzGrindEintragImg"/>
+                   
+
+                   
+                   <h5 id="Marktplatzh5">{Karte.Edition}</h5> 
+                   <h3 id="Marktplatzh3">{Karte.SpielerName}</h3> 
+                   <h5 id="Marktplatzh5">{Karte.Preis} €</h5> 
+
+                    <div id="MarktplatzMoreBEccplse">
+                      <img src={bigger} id="MarktplatzMoreBEccplseimg"/>
+                    </div>
                                                                       
                                   </li>
                              

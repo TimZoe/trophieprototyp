@@ -3,68 +3,73 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  background-color: white;
 }
 #SideMenueTop {
   display: flex;
   width: 90vw;
   justify-content: flex-end;
   padding-right: 10vw;
-  height: 15vh;
+  height: 12vh;
   align-items: center;
 }
 #MenueClose {
 }
 #closeImg {
-  width: 10vw;
+  width: 7vw;
 }
-#SideMenueContent {
-  height: 40vh;
+
+#SideMenueContentWrapper {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  height: 65vh;
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0vw;
+}
+#SideMenueBoxWrapper {
+  border-radius: 4vw;
+  background-color: white;
   display: flex;
   flex-direction: column;
-  padding-left: 10vw;
-}
-#SideMenueSearch {
-  padding-left: 10vw;
-  height: 6vh;
-  border-radius: 3vw;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
-  width: 70vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  margin-left: 5vw;
-  padding-right: 5vw;
-  opacity: 0.7;
-  margin-bottom: 5vh;
+  padding-top: 4vh;
+  height: 25vh;
+  width: 42.5vw;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
 }
-#SideMenueButton {
-  height: 30vh;
-  border-radius: 3vw;
-  background-color: rgb(195, 235, 239);
+#SideMenueEcclipse {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 100%;
+  width: 20vw;
+  height: 20vw;
+  background-color: rgba(195, 235, 239, 0.46);
 }
-#SideMenueButtonImg {
-  width: 50vw;
+#SideMenueEcclipseInner {
 }
-
-#suchenh3 {
+#SideMenueinnerecimg {
+  width: 10vw;
+}
+#SideMenueh2 {
   font-family: Montserrat;
   color: black;
-  font-size: 4vw;
-  font-weight: 400;
-}
-#suchenImg {
-  width: 5vw;
+  font-size: 4.5vw;
+  font-weight: 600;
+  text-align: center;
 }
 
-#MenueEintrag {
-  font-family: Montserrat;
-  color: black;
-  font-size: 5vw;
-  font-weight: 700;
+#SideMenueButton {
+  height: 20vh;
+}
+#SideMenueButton {
+  background-color: rgba(195, 235, 239, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

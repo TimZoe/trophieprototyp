@@ -9,7 +9,7 @@ import { Auth } from 'aws-amplify';
 import { Link } from 'react-router-dom';
 import DBSammlungMorePopUp from './DBSammlungMorePopUp'
 import HandelsPopUpComp from '../Marktplatz/handelsPopUp'
-
+import bigger from '../../assets/Images/bigger.png'
 
 
 
@@ -119,7 +119,9 @@ function DashboardSammlung(props) {
                                 >
                                    
                                    <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                                                     
+                                    <div id="SammlungEintragEcclpise">
+                                        <img src={bigger} id="Sammlungbiggerimg"/>
+                                    </div>                                 
                                   
                                 </li> ))}
                                 {userRareKarten.map(Karte => (

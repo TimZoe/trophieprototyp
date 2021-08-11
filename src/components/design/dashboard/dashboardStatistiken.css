@@ -5,6 +5,47 @@
   padding-left: 0;
   width: 90vw;
 }
+
+#Statistikenrow1 {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4vh;
+}
+#statistikensmallkachel {
+  width: 45vw;
+  border-radius: 4vw;
+  height: 25vh;
+  background-color: rgba(195, 235, 239, 0.23);
+  filter: drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.25));
+}
+#Statistikenkachelh4 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 4vw;
+  font-weight: 700;
+  margin: 0;
+}
+#Statistikenkachelunten {
+}
+#StatistikenkachelChart {
+}
+#StatistikenkachelContent {
+}
+#Statistikenkachelh4 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 4vw;
+  font-weight: 700;
+  margin: 0;
+}
+#Statistikenkachelh5 {
+  font-family: Montserrat;
+  color: black;
+  font-size: 3vw;
+  font-weight: 500;
+  margin: 0;
+}
+
 #StatsContentWrap {
   width: 46%;
   background-color: rgba(195, 235, 239, 0.7);

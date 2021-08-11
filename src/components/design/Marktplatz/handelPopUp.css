@@ -13,6 +13,7 @@
   padding-left: 5vw;
   padding-right: 5vw;
   padding-top: 3vh;
+  z-index: 15;
   padding-bottom: 3vh;
 }
 

@@ -258,37 +258,25 @@ function AlleKarten(props) {
         }
   
   
-        function Wrap () {
-          getUserKarten();
-          UserWert();
-          AlleUserTrophieKartenCounter();
-          AlleUserRareKartenCounter();
-          AlleUserClassicKartenCounter();
-          AlleUserKartenCounter();
-          TrophieScoreBerechnen();
-          getTrophieUserKarten();
-          getRareUserKarten();
-          getClassicUserKarten();
+        useEffect (()=>{
           getAlleTrophieKarten();
           getAlleRareKarten();
           getAlleClassicKarten();
-
+        }, [Kartes])
+        
+        
         
 
-        }
-  
-      
+
   return (
     <div>
         <TopMenue title="Alle Karten"/>
 
-            <div id="alleKartenWrapper">
+            <div id="alleKartenWrapper" onLoad={fetchKarten}>
 
             {props.children}
                 <h2 class="dbSammlungMidh2">Alle Karten auf Trophie</h2>
-                <button onClick={Wrap}>
-                 DataTrigger
-                </button>
+               
 
                 
 
@@ -299,9 +287,11 @@ function AlleKarten(props) {
                                   <li class="AlleKartenGridEintrag Trophie">
                                     <Link to={Karte.KartenLink} id="dd">
                                     
-                                       <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                       <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5> 
-                                      
+                                       <img src={Karte.Bild} id="AlleKartenGridEinztragBild"/>
+                                         <h5 id="AlleKartenh5">{Karte.Edition}</h5> 
+                                        <h3 id="AlleKartenh3">{Karte.SpielerName}</h3> 
+                                        <h5 id="AlleKartenh5">{Karte.Preis} €</h5> 
+
                                     </Link>
                                                                       
                                   </li>
@@ -310,16 +300,25 @@ function AlleKarten(props) {
                                 {AlleRareKarten.map(Karte => (
                                 <li class="AlleKartenGridEintrag Rare">
                                    <Link to={Karte.KartenLink} id="dd">
-                                   <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                    <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5> 
+                                   
+                                   <img src={Karte.Bild} id="AlleKartenGridEinztragBild"/>
+                                         <h5 id="AlleKartenh5">{Karte.Edition}</h5> 
+                                        <h3 id="AlleKartenh3">{Karte.SpielerName}</h3> 
+                                        <h5 id="AlleKartenh5">{Karte.Preis} €</h5>
+                                   
                                     </Link>
                                  
                                 </li> ))}
                                 {AlleClassicKarten.map(Karte => (
                                 <li class="AlleKartenGridEintrag">
                                    <Link to={Karte.KartenLink} id="dd">
-                                   <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                    <h5 id="dashboardSammlungKartenEintragH5">{Karte.id}</h5>  
+                                   
+                                   <img src={Karte.Bild} id="AlleKartenGridEinztragBild"/>
+                                         <h5 id="AlleKartenh5">{Karte.Edition}</h5> 
+                                        <h3 id="AlleKartenh3">{Karte.SpielerName}</h3> 
+                                        <h5 id="AlleKartenh5">{Karte.Preis} €</h5>
+                                   
+                                   
                                     </Link>
                                  
                                 </li> ))}

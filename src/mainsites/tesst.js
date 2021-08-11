@@ -117,12 +117,41 @@ async function setKarteonSaleF (userKartenIndex) {
 }
 
 
+async function getCognito () {
+  console.log("getCognitostart")
+  
+  const session = await Auth.currentSession();  
+  console.log(session)
+
+  setUserName(session.idToken.payload['cognito:username']);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 return (
 
     <div>
+          <div id="Testcognitoabfrage">
 
+          <h2>Cognito User</h2>
+          <button onClick={getCognito}>Data Abfrage</button>
+
+          </div>
             
          <div id="TestMarktplatz">
 

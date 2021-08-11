@@ -276,186 +276,42 @@ function DashboardStats(props) {
 
   return (props.trigger) ?(
     <div>
-      <button onClick={Wrap}>
-                 DataTrigger
-       </button>
+      
 
        <h2 class="dbSammlungMidh2">Deine Statistiken</h2>
 
                 
         <div id="StatistikenWrapper">
-       
-          <div id="StatsRowWrap">
-              <div id="StatsContentWrap">
-               <h4 id="statsCharth4">
-                      Karten Editionen
-                </h4>
-                <div id="contentstatsWrapunten">
-                  <div id="chartWrapper" >
-                  
-                      <Pie 
-                        TrophieKarten={TrophieKartenUser}
-                        RareKarten={RareKartenUser}
-                        ClassicKarten={ClassicKartenUser}
 
-                      />
+          <div id="Statistikenrow1">
 
-                  </div>
-                  <div id="vontentWrapRechts">
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{TrophieKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Trophie </h5>
-                    </div>
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{RareKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Rare </h5>
-                    </div>
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{ClassicKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Classic </h5>
-                    </div>
-                   
+            <div id="statistikensmallkachel">
+              <h4 id="Statistikenkachelh4">
+                Wert Zusammensetzung
+              </h4>
 
-                  </div>
+              <div id="Statistikenkachelunten">
+                <div id="StatistikenkachelChart">
+                  Chart
                 </div>
-                  
-                
-               
-              </div>
-
-              <div id="StatsContentWrap">
-               <h4 id="statsCharth4">
-                      Wert Zusammensetzung
-                </h4>
-                <div id="contentstatsWrapunten">
-                  <div id="chartWrapper" >
-                  
-                      <Pie 
-                        TrophieKarten={TrophieKartenUser}
-                        RareKarten={RareKartenUser}
-                        ClassicKarten={ClassicKartenUser}
-
-                      />
-
-                  </div>
-                  <div id="vontentWrapRechts">
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{TrophieKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Trophie </h5>
-                    </div>
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{RareKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Rare </h5>
-                    </div>
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{ClassicKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Classic </h5>
-                    </div>
-                   
-
-                  </div>
+                <div id="StatistikenkachelContent">
+                  <h3 id="Statistikenkachelh4">
+                    6
+                  </h3>
+                  <h5 id="Statistikenkachelh5"></h5>
                 </div>
-                  
-                
-               
               </div>
-          </div>
-        
-
-         
-        
-         
-
-          <div id="StatsContentWrap100">
-            <div id="WertStatsChartWrapper">
-              <Line/>
+            
+            
+            
+            
             </div>
 
-            <div id="StatsWertRechtsWrapper">
-                <h4 id="statsCharth4">
-                      Wert Entwicklung
-                </h4>
-                xxx
-                <h3 id="statsbigh3">{WertUserKarten}</h3>
-            </div>
+            
 
           </div>
-          <div id="StatsRowWrap">
-              <div id="StatsContentWrap">
-               <h4 id="statsCharth4">
-                      Karten Editionen
-                </h4>
-                <div id="contentstatsWrapunten">
-                  <div id="chartWrapper" >
-                  
-                      <Pie 
-                        TrophieKarten={TrophieKartenUser}
-                        RareKarten={RareKartenUser}
-                        ClassicKarten={ClassicKartenUser}
 
-                      />
-
-                  </div>
-                  <div id="vontentWrapRechts">
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{TrophieKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Trophie </h5>
-                    </div>
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{RareKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Rare </h5>
-                    </div>
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{ClassicKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Classic </h5>
-                    </div>
-                   
-
-                  </div>
-                </div>
-                  
-                
-               
-              </div>
-
-              <div id="StatsContentWrap">
-               <h4 id="statsCharth4">
-                      Wert Zusammensetzung
-                </h4>
-                <div id="contentstatsWrapunten">
-                  <div id="chartWrapper" >
-                  
-                      <Pie 
-                        TrophieKarten={TrophieKartenUser}
-                        RareKarten={RareKartenUser}
-                        ClassicKarten={ClassicKartenUser}
-
-                      />
-
-                  </div>
-                  <div id="vontentWrapRechts">
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{TrophieKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Trophie </h5>
-                    </div>
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{RareKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Rare </h5>
-                    </div>
-                    <div id="contentSTatsrechtswrap">
-                        <h4 id="contentStatsrehtsh4">{ClassicKartenUser}</h4>
-                        <h5 id="contentStatsrehtsh5">Classic </h5>
-                    </div>
-                   
-
-                  </div>
-                </div>
-                  
-                
-               
-              </div>
-          </div>
-
+    
         </div>
 
      </div>
