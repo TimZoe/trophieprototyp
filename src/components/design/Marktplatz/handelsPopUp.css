@@ -90,6 +90,13 @@
 #biggerimg {
   width: 8vw;
 }
+#ErfolgsmeldungWrapper {
+  height: 3vh;
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  padding-right: 6vw;
+}
 
 #showMoreSammlungInfoWrapper {
   display: flex;

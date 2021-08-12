@@ -63,7 +63,18 @@ function DashboardSammlung(props) {
 
      
   
-  
+        const OnSaleMarker = (Karte) => {
+            if (Karte.onSale==true) {
+              return (<h4> on Sale</h4>);
+            } else {
+              return (<h4>not sale</h4>);
+            }
+          }
+       
+      
+
+
+
       
         const [DBSammlungMorePopUp, setDBSammlungMorePopUp] = useState(false);
         const [HandelsPopUp, setHandelsPopUp] = useState(false);
@@ -121,22 +132,39 @@ function DashboardSammlung(props) {
                                    <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
                                     <div id="SammlungEintragEcclpise">
                                         <img src={bigger} id="Sammlungbiggerimg"/>
-                                    </div>                                 
+                                    </div>     
+
+                                    {OnSaleMarker(Karte)}
+
+
                                   
                                 </li> ))}
+
                                 {userRareKarten.map(Karte => (
                                 <li class="dashboardSammlungKartenWrapperGridEintrag Rare"
                                 onClick={function(){setHandelsPopUp(true);setMorePopUpInhalt(Karte)} } 
                                 >
                                    <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                    
+                                   <div id="SammlungEintragEcclpise">
+                                        <img src={bigger} id="Sammlungbiggerimg"/>
+                                    </div>  
+                             
+                                    {OnSaleMarker(Karte)}
+
                                 </li> ))}
+
                                 {userClassicKarten.map(Karte => (
                                 <li class="dashboardSammlungKartenWrapperGridEintrag"
                                 onClick={function(){setHandelsPopUp(true);setMorePopUpInhalt(Karte)} } 
                                 >
                                    <img src={Karte.Bild} id="dashboardSammlungKartenWrapperGridEintragBild"/>
-                                   
+                                   <div id="SammlungEintragEcclpise">
+                                        <img src={bigger} id="Sammlungbiggerimg"/>
+                                    </div>  
+                                  
+                                    {OnSaleMarker(Karte)}
+
+
                                 </li> ))}
                </ul>
              
